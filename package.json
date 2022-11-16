@@ -15,7 +15,8 @@
     "lint:ci": "prettier \"./**/*.{md,mdx,json,js,mjs,ts,svelte,astro,html}\" --ignore \"./node_modules/**\" --check"
   },
   "dependencies": {
-    "astro": "^1.6.9"
+    "@astrojs/node": "3.0.0",
+    "astro": "1.6.9"
   },
   "devDependencies": {
     "husky": "8.0.2",
