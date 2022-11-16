@@ -4,13 +4,22 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "prettier \"./**/*.{md,mdx,js,mjs,ts,svelte,astro,html}\" --ignore \"./node_modules/**\" --write",
+    "lint:ci": "prettier \"./**/*.{md,mdx,js,mjs,ts,svelte,astro,html}\" --ignore \"./node_modules/**\" --check"
   },
   "dependencies": {
     "astro": "^1.6.9"
+  },
+  "devDependencies": {
+    "husky": "8.0.2",
+    "lint-staged": "13.0.3",
+    "prettier": "2.7.1",
+    "prettier-plugin-astro": "0.7.0"
   }
 }
