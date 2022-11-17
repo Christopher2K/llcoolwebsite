@@ -11,6 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "test:e2e": "playwright test",
     "lint": "prettier \"./**/*.{md,mdx,json,js,mjs,cjs,ts,svelte,astro,html}\" --ignore \"./node_modules/**\" --write",
     "lint:ci": "prettier \"./**/*.{md,mdx,json,js,mjs,cjs,ts,svelte,astro,html}\" --ignore \"./node_modules/**\" --check"
   },
@@ -23,6 +24,7 @@
     "tailwindcss": "3.2.4"
   },
   "devDependencies": {
+    "@playwright/test": "1.28.0",
     "husky": "8.0.2",
     "lint-staged": "13.0.3",
     "prettier": "2.7.1",
