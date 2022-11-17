@@ -16,13 +16,18 @@
   },
   "dependencies": {
     "@astrojs/node": "3.0.0",
-    "astro": "1.6.9"
+    "@astrojs/svelte": "1.0.2",
+    "astro": "1.6.9",
+    "svelte": "3.53.1"
   },
   "devDependencies": {
     "husky": "8.0.2",
     "lint-staged": "13.0.3",
     "prettier": "2.7.1",
-    "prettier-plugin-astro": "0.7.0"
+    "prettier-plugin-astro": "0.7.0",
+    "prettier-plugin-svelte": "2.8.0",
+    "typescript": "4.9.3",
+    "vite": "3.2.4"
   },
   "lint-staged": {
     "*.{md,mdx,json,js,mjs,ts,svelte,astro,html}": "prettier --write --config .prettierrc"

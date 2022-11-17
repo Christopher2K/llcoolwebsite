@@ -1,11 +1,13 @@
 {
   "plugins": [
-    "prettier-plugin-astro"
+    "prettier-plugin-astro",
+    "prettier-plugin-svelte"
   ],
   "semi": false,
   "trailingComma": "all",
   "singleQuote": true,
   "printWidth": 90,
   "tabWidth": 2,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "svelteStrictMode": true
 }
