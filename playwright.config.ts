@@ -6,6 +6,8 @@ import { devices } from '@playwright/test'
  * https://github.com/motdotla/dotenv
  */
 // require('dotenv').config();
+//
+const runningInCI = Boolean(process.env.CI)
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -24,9 +26,9 @@ const config: PlaywrightTestConfig = {
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
-  forbidOnly: !!process.env.CI,
+  forbidOnly: runningInCI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: runningInCI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -96,12 +98,13 @@ const config: PlaywrightTestConfig = {
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
+}
 
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   port: 3000,
-  // },
+if (runningInCI) {
+  config.webServer = {
+    command: 'pnpm run preview',
+    port: 3000,
+  }
 }
 
 export default config

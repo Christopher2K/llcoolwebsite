@@ -1,0 +1,38 @@
+name: Tests
+on: [push]
+
+env:
+  CI: true
+
+jobs:
+  tests:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    # BASE
+    - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      with:
+        version: 7.12.2
+    - uses: actions/setup-node@v3
+      with:
+        node-version-file: '.tool-version'
+    - name: Install dependencies
+      run: pnpm install
+    # LINT
+    - name: Lint code
+      run: pnpm run lint:ci
+    # BUILD
+    - name: Build website
+      run: pnpm run build
+    # E2E
+    - name: Install Playwright Browsers
+      run: pnpm playwright install --with-deps
+    - name: Run Playwright tests
+      run: pnpm playwright test
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
