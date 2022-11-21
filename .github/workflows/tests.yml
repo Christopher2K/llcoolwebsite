@@ -1,4 +1,5 @@
 name: Tests
+
 on: [push]
 
 env:
@@ -11,21 +12,24 @@ jobs:
     steps:
     # BASE
     - uses: actions/checkout@v3
+
     - uses: pnpm/action-setup@v2
       with:
         version: 7.12.2
+
     - uses: actions/setup-node@v3
       with:
         node-version-file: '.tool-version'
+
     - name: Install dependencies
       run: pnpm install
-    # LINT
+
     - name: Lint code
       run: pnpm run lint:ci
-    # BUILD
+
     - name: Build website
       run: pnpm run build
-    # E2E
+
         # TODO: Fix this
     # - name: Install Playwright Browsers
     #   run: pnpm playwright install --with-deps
