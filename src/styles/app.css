@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'Flix Normal';
+  src: url('/fonts/Flix-Normal.woff2') format('woff2'),
+    url('/fonts/Flix-Normal.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Regular.woff2') format('woff2'),
+    url('/fonts/Lato-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Bold.woff2') format('woff2'),
+    url('/fonts/Lato-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Medium.woff2') format('woff2'),
+    url('/fonts/Lato-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .heading2 {
+    font-family: theme('fontFamily.title');
+    font-size: theme('fontSize.6xl');
+    line-height: 130%;
+  }
+
+  .heading1 {
+    font-family: theme('fontFamily.title');
+    font-size: theme('fontSize.5xl');
+    line-height: 130%;
+  }
+
+  .subheading2 {
+    font-family: theme('fontFamily.body');
+    font-size: theme('fontSize.3xl');
+    line-height: 130%;
+    font-weight: 500;
+  }
+
+  .subheading1 {
+    font-family: theme('fontFamily.body');
+    font-size: theme('fontSize.2xl');
+    line-height: 130%;
+    font-weight: 500;
+  }
+
+  .bigbody {
+    font-family: theme('fontFamily.body');
+    font-size: theme('fontSize.xl');
+    line-height: 130%;
+    font-weight: 500;
+  }
+
+  .body {
+    font-family: theme('fontFamily.body');
+    font-size: theme('fontSize.xl');
+    line-height: 130%;
+    font-weight: normal;
+  }
+
+  .hint2 {
+    font-family: theme('fontFamily.body');
+    font-size: theme('fontSize.sm');
+    line-height: 130%;
+    font-weight: normal;
+  }
+
+  .hint1 {
+    font-family: theme('fontFamily.body');
+    font-size: theme('fontSize.xs');
+    font-weight: normal;
+  }
+}

@@ -14,5 +14,10 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
   },
-  integrations: [svelte(), tailwind()],
+  integrations: [
+    svelte(),
+    tailwind({
+      config: { applyBaseStyles: false },
+    }),
+  ],
 })
