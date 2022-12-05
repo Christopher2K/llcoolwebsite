@@ -8,6 +8,7 @@ specifiers:
   astro: 1.6.9
   husky: 8.0.2
   lint-staged: 13.0.3
+  lucide-svelte: 0.104.0
   prettier: 2.7.1
   prettier-plugin-astro: 0.7.0
   prettier-plugin-svelte: 2.8.0
@@ -21,6 +22,7 @@ dependencies:
   '@astrojs/svelte': 1.0.2_4rgu74t2n5aihruqie6ni6rao4
   '@astrojs/tailwind': 2.1.2_tailwindcss@3.2.4
   astro: 1.6.9
+  lucide-svelte: 0.104.0_svelte@3.53.1
   svelte: 3.53.1
   tailwindcss: 3.2.4
 
@@ -2448,6 +2450,14 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+    dev: false
+
+  /lucide-svelte/0.104.0_svelte@3.53.1:
+    resolution: {integrity: sha512-PhckIn28E571Kx2gs2SVh5gc0RlDge521AE63ce4c8gRUMYeo9USPUr80bt/26J5+8qce+hw1zRjx/ag2BqBgw==}
+    peerDependencies:
+      svelte: ^3.49.0
+    dependencies:
+      svelte: 3.53.1
     dev: false
 
   /magic-string/0.25.9:

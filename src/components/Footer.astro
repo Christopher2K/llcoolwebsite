@@ -1,0 +1,47 @@
+---
+import { Twitch, Twitter, Github } from 'lucide-svelte'
+
+import { SOCIALS } from '@app/constants'
+
+import Typography from './Typography.svelte'
+---
+
+<footer class="w-full bg-primary-900">
+  <div class="max-w-[1000px] w-full p-10 mx-auto">
+    <Typography variant="subheading1" class="mb-3 text-neutral-50"
+      >Christopher N. Katoyi Kaba | LL Cool Chris_</Typography
+    >
+    <ul class="flex flex-row justify-start items-center flex-wrap mb-6 gap-5">
+      <li>
+        <a
+          href={SOCIALS.twitch}
+          aria-label="Follow my on Twitch"
+          target="_blank"
+          rel="noopener"
+          ><Twitch class="text-neutral-50 w-8 h-8" />
+        </a>
+      </li>
+      <li>
+        <a
+          href={SOCIALS.twitter}
+          aria-label="Follow me on Twitter"
+          target="_blank"
+          rel="noopener"
+          ><Twitter class="text-neutral-50 w-8 h-8" />
+        </a>
+      </li>
+      <li>
+        <a
+          href={SOCIALS.github}
+          aria-label="Follow me on Github"
+          target="_blank"
+          rel="noopener"
+          ><Github class="text-neutral-50 w-8 h-8" />
+        </a>
+      </li>
+    </ul>
+    <Typography class="text-neutral-50"
+      >All rights reserved © Christopher N. Katoyi Kaba - 2022</Typography
+    >
+  </div>
+</footer>
