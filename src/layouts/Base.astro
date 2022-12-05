@@ -11,6 +11,16 @@ import '@app/styles/app.css'
     <title>Christopher Katoyi: Software Engineer</title>
   </head>
   <body>
-    <slot />
+    <div
+      class="max-w-[1340px] mx-auto grid grid-rows-mobile md:grid-rows-none md:grid-cols-tablet lg:grid-cols-desktop"
+    >
+      <nav class="w-full sticky top-0 left-0 bg-primary-200 md:h-fit">Nav</nav>
+
+      <main class="bg-secondary-200">
+        <slot />
+        <div class="h-[1000px]"></div>
+      </main>
+    </div>
+    <footer class="w-full">Footer</footer>
   </body>
 </html>

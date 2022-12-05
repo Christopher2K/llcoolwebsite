@@ -39,6 +39,16 @@ module.exports = {
         900: '#c56600',
       },
     },
+    extend: {
+      gridTemplateRows: {
+        mobile: '72px minmax(0, 1fr)',
+      },
+
+      gridTemplateColumns: {
+        tablet: '100px 1fr',
+        desktop: '300px 1fr',
+      },
+    },
   },
   plugins: [],
 }
