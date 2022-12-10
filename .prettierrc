@@ -9,5 +9,6 @@
   "printWidth": 90,
   "tabWidth": 2,
   "arrowParens": "avoid",
-  "svelteStrictMode": true
+  "svelteStrictMode": false,
+  "svelteAllowShorthand": true
 }
