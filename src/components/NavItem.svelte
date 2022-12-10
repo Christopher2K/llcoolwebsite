@@ -5,6 +5,7 @@
   export let label: string
   export let href: string
   export let absolute: boolean = false
+  export let hideTextOnTablet = false
 
   $: withIcon = $$slots.icon
   $: active = absolute ? currentPath === href : currentPath.startsWith(href)
@@ -13,14 +14,19 @@
 <a
   class="relative px-6 py-3 bg-primary-900 w-full rounded-lg flex flex-row justify-start items-center gap-3"
   class:active
+  class:md:max-lg:px-0={hideTextOnTablet}
+  class:md:max-lg:justify-center={hideTextOnTablet}
+  aria-label={label}
   {href}
 >
   {#if withIcon}
-    <span class="block w-6 h-6" aria-hidden="true">
+    <span class="icon-container block w-6 h-6" aria-hidden="true">
       <slot name="icon" />
     </span>
   {/if}
-  <Typography variant="body" class="block text-neutral-50">{label}</Typography>
+  <span class="block" class:md:max-lg:hidden={hideTextOnTablet}>
+    <Typography variant="body" class="text-neutral-50">{label}</Typography>
+  </span>
 </a>
 
 <style lang="postcss">
@@ -39,7 +45,7 @@
     border-radius: theme('borderRadius.xl');
   }
 
-  :global(span svg) {
+  .icon-container :global(svg) {
     width: 100%;
     height: 100%;
     color: theme('colors.neutral.50');
