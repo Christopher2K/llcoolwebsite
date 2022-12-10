@@ -19,6 +19,6 @@
   $: classNames = [variant, importantClasses, className].filter(Boolean).join(' ')
 </script>
 
-<svelte:element this="{tag}" class="{classNames}">
+<svelte:element this={tag} class={classNames}>
   <slot />
 </svelte:element>
