@@ -1,6 +1,9 @@
 ---
 import '@app/styles/app.css'
+import Nav from '@app/components/Nav.svelte'
 import Footer from '@app/components/Footer.astro'
+
+const path = new URL(Astro.request.url).pathname
 ---
 
 <html lang="en">
@@ -15,8 +18,8 @@ import Footer from '@app/components/Footer.astro'
     <div
       class="max-w-[1340px] mx-auto grid grid-rows-mobile md:grid-rows-none md:grid-cols-tablet lg:grid-cols-desktop"
     >
-      <nav class="w-full sticky top-0 left-0 bg-primary-200 md:h-fit">Nav</nav>
-
+      <!-- TODO: Fix the typing error with Astro LSP maybe -->
+      <Nav client:load path={path} />
       <main class="bg-secondary-200">
         <slot />
         <div class="h-[1000px]"></div>
