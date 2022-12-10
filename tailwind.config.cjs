@@ -42,7 +42,7 @@ module.exports = {
       },
 
       gridTemplateRows: {
-        mobile: '72px minmax(0, 1fr)',
+        mobile: 'auto minmax(0, 1fr)',
       },
 
       gridTemplateColumns: {
