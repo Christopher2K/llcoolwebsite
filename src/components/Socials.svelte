@@ -11,14 +11,30 @@
       component: Linkedin,
     },
   ]
+
+  export let size: 'md' | 'lg' = 'md'
+  export let theme: 'dark' | 'light' = 'dark'
+
+  $: sizeClass = size === 'md' ? 'w-6 h-6' : 'w-8 h-8'
+  $: colorClass = theme === 'dark' ? 'text-neutral-900' : 'text-neutral-50'
+  $: spacingClass = size === 'md' ? 'gap-4' : 'gap-5'
 </script>
 
 <section>
-  <ul class="flex flex-row justify-start items-center gap-4">
+  <ul class="flex flex-row justify-start items-center {spacingClass}">
     {#each SOCIALS as social}
       <li>
-        <a href={social.href} target="_blank" rel="noreferrer" aria-label={social.name}>
-          <svelte:component this={social.component} class="h-6 w-6" aria-hidden="true" />
+        <a
+          href={social.href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Follow me on {social.name}"
+        >
+          <svelte:component
+            this={social.component}
+            class="{sizeClass} {colorClass}"
+            aria-hidden="true"
+          />
         </a>
       </li>
     {/each}
