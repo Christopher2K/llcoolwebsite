@@ -42,7 +42,7 @@
 </script>
 
 <nav
-  class="w-full sticky top-0 left-0 p-4 h-fit md:relative md:flex md:flex-col md:justify-start md:items-center md:gap-10"
+  class="w-full sticky top-0 left-0 p-4 h-fit md:flex md:flex-col md:justify-start md:items-center md:gap-10"
 >
   <div class="h-[72px] md:h-auto lg:w-full flex flex-row justify-between items-center">
     <Typography variant="subheading2" class="md:hidden">
