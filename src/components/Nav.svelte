@@ -13,7 +13,7 @@
   // State
   let scrollingElement: Element | null = null
   let menuOpen = false
-  let isDarkMode = false
+  let isDarkMode: boolean | undefined = undefined
 
   // Computed
   $: menuButtonIcon = menuOpen ? X : Menu
@@ -24,6 +24,17 @@
   // Callbacks
   function toggleMenu() {
     menuOpen = !menuOpen
+  }
+
+  function switchTheme() {
+    isDarkMode = !isDarkMode
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
+
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
   }
 
   // Reactive block
@@ -38,6 +49,7 @@
   // Lifecycle
   onMount(() => {
     scrollingElement = document.scrollingElement
+    isDarkMode = window.localStorage.getItem('theme') === 'dark'
   })
 </script>
 
@@ -66,13 +78,19 @@
           />
         </RoundedIconButton>
 
-        <RoundedIconButton label={themeButtonLabel} type="button">
-          <svelte:component
-            this={themeButtonIcon}
-            class="h-6 text-neutral-50"
-            aria-hidden="true"
-          />
-        </RoundedIconButton>
+        <div class:invisible={isDarkMode === undefined}>
+          <RoundedIconButton
+            label={themeButtonLabel}
+            type="button"
+            on:click={switchTheme}
+          >
+            <svelte:component
+              this={themeButtonIcon}
+              class="h-6 text-neutral-50"
+              aria-hidden="true"
+            />
+          </RoundedIconButton>
+        </div>
       </div>
 
       <img
@@ -103,7 +121,7 @@
   <div
     class:hidden={!menuOpen}
     class:flex={menuOpen}
-    class="md:flex absolute md:relative flex-col justify-start items-start gap-5 bg-light px-4 md:px-0 top-full md:top-auto left-0 md:left-auto right-0 md:right-auto h-[calc(100vh-72px-theme(space.4)-theme(space.4))] md:h-auto w-full"
+    class="md:flex absolute md:relative flex-col justify-start items-start gap-5 bg-light dark:bg-dark sm:bg-transparent px-4 md:px-0 top-full md:top-auto left-0 md:left-auto right-0 md:right-auto h-[calc(100vh-72px-theme(space.4)-theme(space.4))] md:h-auto w-full"
   >
     <NavItem hideTextOnTablet label="Home" href="/" currentPath={path} absolute>
       <Home slot="icon" />

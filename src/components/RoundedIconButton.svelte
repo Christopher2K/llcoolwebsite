@@ -9,7 +9,7 @@
   {type}
   aria-label={label}
   on:click
-  class="flex flex-col justify-center items-center rounded-full bg-primary-900 w-12 h-12 {className}"
+  class="flex flex-col justify-center items-center rounded-full bg-primary-900 dark:bg-secondary-900 w-12 h-12 {className}"
 >
   <slot />
 </button>

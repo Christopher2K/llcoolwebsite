@@ -13,10 +13,15 @@
   ]
 
   export let size: 'md' | 'lg' = 'md'
-  export let theme: 'dark' | 'light' = 'dark'
+  export let theme: 'dark' | 'light' | undefined = undefined
 
   $: sizeClass = size === 'md' ? 'w-6 h-6' : 'w-8 h-8'
-  $: colorClass = theme === 'dark' ? 'text-neutral-900' : 'text-neutral-50'
+  $: colorClass =
+    theme === undefined
+      ? 'dark:text-light text-dark'
+      : theme === 'dark'
+      ? 'text-dark'
+      : 'text-light'
   $: spacingClass = size === 'md' ? 'gap-4' : 'gap-5'
 </script>
 

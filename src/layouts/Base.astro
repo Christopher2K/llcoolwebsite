@@ -13,12 +13,23 @@ const path = new URL(Astro.request.url).pathname
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Christopher Katoyi: Software Engineer</title>
+    <script>
+      // Dark mode script
+      if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
   </head>
-  <body>
+  <body class="bg-light dark:bg-dark">
     <div
       class="max-w-[1340px] mx-auto grid grid-rows-mobile md:grid-rows-none md:grid-cols-tablet lg:grid-cols-desktop"
     >
-      <!-- TODO: Fix the typing error with Astro LSP maybe -->
       <Nav client:load path={path} />
       <main class="bg-secondary-200">
         <slot />

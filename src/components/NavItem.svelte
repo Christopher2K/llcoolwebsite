@@ -12,7 +12,7 @@
 </script>
 
 <a
-  class="relative px-6 py-3 bg-primary-900 w-full rounded-lg flex flex-row justify-start items-center gap-3"
+  class="relative px-6 py-3 bg-primary-900 dark:bg-secondary-900 w-full rounded-lg flex flex-row justify-start items-center gap-3"
   class:active
   class:md:max-lg:px-0={hideTextOnTablet}
   class:md:max-lg:justify-center={hideTextOnTablet}
@@ -25,7 +25,7 @@
     </span>
   {/if}
   <span class="block" class:md:max-lg:hidden={hideTextOnTablet}>
-    <Typography variant="body" class="text-neutral-50">{label}</Typography>
+    <Typography variant="body" disableColorClasses class="text-light">{label}</Typography>
   </span>
 </a>
 
@@ -43,6 +43,12 @@
     background: transparent;
     border: 3px solid theme('colors.primary.500');
     border-radius: theme('borderRadius.xl');
+  }
+
+  :global(html.dark) a:hover::after,
+  :global(html.dark) a:active::after,
+  :global(html.dark) a.active::after {
+    border-color: theme('colors.secondary.500');
   }
 
   .icon-container :global(svg) {
