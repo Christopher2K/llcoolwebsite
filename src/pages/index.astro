@@ -1,6 +1,7 @@
 ---
 import Base from '@app/layouts/Base.astro'
 import Hero from '@app/components/Hero.svelte'
+import Section from '@app/components/Section.svelte'
 ---
 
 <Base>
@@ -16,6 +17,13 @@ import Hero from '@app/components/Hero.svelte'
     ]}
     arrowLabel="See what I'm doing"
   />
-  <h1>Astro</h1>
-  <p>Metro Boomin'</p>
+
+  <Section title="My latest video">
+    <iframe
+      class="w-full aspect-video"
+      src="https://player.twitch.tv?channel=llcoolchris_&parent=localhost"
+      allowfullscreen
+    >
+    </iframe>
+  </Section>
 </Base>
