@@ -1,8 +1,16 @@
 ---
 import Base from '@app/layouts/Base.astro'
+import Hero from '@app/components/Hero.svelte'
 ---
 
 <Base>
+  <Hero
+    title={[`Blog `, `articles`]}
+    imageSrc="/images/shelf.png"
+    imageAlt="A shelf with some books"
+    tagLines={[`I might teach you one or two things about development.`]}
+  />
+
   <h1>Blog</h1>
   <p>Let's go</p>
 </Base>

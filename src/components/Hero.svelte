@@ -10,12 +10,13 @@
   export let imageSrc: string
   export let imageAlt: string
   export let tagLines: string
+  export let arrowLabel: string = 'Learn more'
 
   $: [prefixTitle, highlightedTitlePart] = title
 </script>
 
 <section
-  class="h-[calc(100vh-72px-theme(space.4)-theme(space.4))] md:h-[100vh] flex flex-col justify-around items-center"
+  class="min-h-[calc(100vh-72px-theme(space.4)-theme(space.4))] md:min-h-[100vh] flex flex-col justify-around items-center"
 >
   <Typography variant="heading1" class="text-center">
     {prefixTitle}
@@ -35,7 +36,7 @@
       <ArrowDown class="text-light" />
     </RoundedIconButton>
 
-    <Typography important>See what I'm doing</Typography>
+    <Typography important>{arrowLabel}</Typography>
   </div>
 </section>
 

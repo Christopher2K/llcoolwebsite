@@ -1,8 +1,19 @@
 ---
 import Base from '@app/layouts/Base.astro'
+import Hero from '@app/components/Hero.svelte'
 ---
 
 <Base>
+  <Hero
+    title={[`Indie `, `stories`]}
+    imageSrc="/images/computer.png"
+    imageAlt="My macbook with a DEV label on the screen"
+    tagLines={[
+      `Each app I've been working on has a story.`,
+      `Let me introduce you to these stories!`,
+    ]}
+  />
+
   <h1>Indie stories</h1>
   <p>Let go</p>
 </Base>
