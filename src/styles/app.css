@@ -35,6 +35,10 @@
 @tailwind utilities;
 
 @layer components {
+  .switch-theme-animation * {
+    transition: color 200ms linear, background-color 200ms linear;
+  }
+
   .heading2 {
     font-family: theme('fontFamily.title');
     font-size: theme('fontSize.6xl');

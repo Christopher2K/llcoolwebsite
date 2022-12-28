@@ -1,8 +1,20 @@
 ---
 import Base from '@app/layouts/Base.astro'
+import Hero from '@app/components/Hero.svelte'
 ---
 
 <Base>
+  <Hero
+    title={[`I'm Chris, a `, `software engineer`]}
+    imageSrc="/images/keyboard.png"
+    imageAlt="My moonlander keyboard handdrawing"
+    tagLines={[
+      `I've been working in the industry for +8 years.`,
+      `A key aspect of my work is to share knowledge.`,
+      `Here are my thoughts, my projects and my mistakes.`,
+      `For free!`,
+    ]}
+  />
   <h1>Astro</h1>
   <p>Metro Boomin'</p>
 </Base>
