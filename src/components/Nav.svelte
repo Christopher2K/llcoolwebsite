@@ -108,7 +108,7 @@
     </div>
     <div>
       <Typography>Software Engineer @ Maple</Typography>
-      <Typography>Educational Tech Stream</Typography>
+      <Typography>Educational Tech Streamer</Typography>
     </div>
     <Typography variant="hint2">Toronto, Canada</Typography>
   </section>
