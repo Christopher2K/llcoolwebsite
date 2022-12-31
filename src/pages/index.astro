@@ -2,6 +2,10 @@
 import Base from '@app/layouts/Base.astro'
 import Hero from '@app/components/Hero.svelte'
 import Section from '@app/components/Section.svelte'
+import Typography from '@app/components/Typography.svelte'
+import ArticleContainer from '@app/components/ArticleContainer.svelte'
+import Article from '@app/components/Article.svelte'
+import Button from '@app/components/Button.svelte'
 ---
 
 <Base>
@@ -25,5 +29,17 @@ import Section from '@app/components/Section.svelte'
       allowfullscreen
     >
     </iframe>
+  </Section>
+
+  <Section title="My indie stories">
+    <Typography class="mb-10"
+      >Let me tell you stories about me, on the path of building my own products...</Typography
+    >
+    <ArticleContainer class="mb-10">
+      <Article />
+      <Article />
+      <Article />
+    </ArticleContainer>
+    <Button link={{ href: '/' }} label="See more about indie stuff" />
   </Section>
 </Base>
