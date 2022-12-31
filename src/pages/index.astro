@@ -40,6 +40,20 @@ import Button from '@app/components/Button.svelte'
       <Article />
       <Article />
     </ArticleContainer>
-    <Button link={{ href: '/' }} label="See more about indie stuff" />
+    <Button link={{ href: '/indie-stories' }} label="See more about indie stuff" />
+  </Section>
+
+  <Section title="Recent blog posts">
+    <Typography class="mb-10"
+      >As an engineer, it’s important to share and classify all the events, all the
+      research you’re going through in your day job. You might learn one or two things in
+      those articles.</Typography
+    >
+    <ArticleContainer class="mb-10">
+      <Article />
+      <Article />
+      <Article />
+    </ArticleContainer>
+    <Button link={{ href: '/blog' }} label="See more blog posts" />
   </Section>
 </Base>
