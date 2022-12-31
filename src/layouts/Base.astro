@@ -33,7 +33,6 @@ const path = new URL(Astro.request.url).pathname
       <Nav client:load path={path} />
       <main class="px-4 sm:px-6">
         <slot />
-        <div class="h-[1000px]"></div>
       </main>
     </div>
     <Footer />
