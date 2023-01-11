@@ -4,6 +4,13 @@ const config: AstroI18nextConfig = {
   defaultLocale: 'en',
   locales: ['en', 'fr'],
   namespaces: ['common', 'home'],
+  i18nextClient: {
+    debug: true,
+    detection: {
+      order: ['querystring', 'path'],
+      caches: [],
+    },
+  },
 }
 
 export default config

@@ -16,6 +16,7 @@ specifiers:
   prettier-plugin-astro: 0.7.0
   prettier-plugin-svelte: 2.8.0
   svelte: 3.53.1
+  svelte-i18next: 1.2.2
   tailwindcss: 3.2.4
   typescript: 4.9.3
   vite: 3.2.4
@@ -28,6 +29,7 @@ dependencies:
   i18next-fs-backend: 2.1.1
   lucide-svelte: 0.104.0_svelte@3.53.1
   svelte: 3.53.1
+  svelte-i18next: 1.2.2_avjemk6yuyyhqtosw2pldh66zm
   tailwindcss: 3.2.4
 
 devDependencies:
@@ -368,7 +370,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
-    dev: true
 
   /@babel/template/7.18.10:
     resolution: {integrity: sha512-TI+rCtooWHr3QJ27kJxfjutghu44DLnasDMwpDqCXVTal9RLp3RSYNh4NdBrRP2cQAoG9A8juOQl6P6oZG4JxA==}
@@ -2036,7 +2037,6 @@ packages:
     resolution: {integrity: sha512-8gWMmUz460KJDQp/ob3MNUX84cVuDRY9PLFPnV8d+Qezz/6dkjxwOaH70xjrCNDO+JrUL25iXfAIN9wUkInNZw==}
     dependencies:
       '@babel/runtime': 7.20.7
-    dev: true
 
   /ieee754/1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
@@ -3223,7 +3223,6 @@ packages:
 
   /regenerator-runtime/0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
-    dev: true
 
   /rehype-parse/8.0.4:
     resolution: {integrity: sha512-MJJKONunHjoTh4kc3dsM1v3C9kGrrxvA3U8PxZlP2SjH8RNUSrb+lF7Y0KVaUDnGH2QZ5vAn7ulkiajM9ifuqg==}
@@ -3670,6 +3669,16 @@ packages:
     peerDependencies:
       svelte: '>=3.19.0'
     dependencies:
+      svelte: 3.53.1
+    dev: false
+
+  /svelte-i18next/1.2.2_avjemk6yuyyhqtosw2pldh66zm:
+    resolution: {integrity: sha512-a5eNuDpxAD6TO0s7jlWuFjOYvT4kggbkXpcZCHBeNnWMHj+sNELQdrVsvubD2hLr8WC7OoF0pDfU/IuuvZp7OQ==}
+    peerDependencies:
+      i18next: '*'
+      svelte: '*'
+    dependencies:
+      i18next: 22.4.9
       svelte: 3.53.1
     dev: false
 
