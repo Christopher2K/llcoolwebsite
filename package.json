@@ -13,20 +13,24 @@
     "astro": "astro",
     "test:e2e": "playwright test",
     "lint": "prettier \"./**/*.{md,mdx,json,js,mjs,cjs,ts,svelte,astro,html}\" --write",
-    "lint:ci": "prettier \"./**/*.{md,mdx,json,js,mjs,cjs,ts,svelte,astro,html}\" --check"
+    "lint:ci": "prettier \"./**/*.{md,mdx,json,js,mjs,cjs,ts,svelte,astro,html}\" --check",
+    "localize": "astro-i18next generate"
   },
   "dependencies": {
     "@astrojs/node": "3.0.0",
     "@astrojs/svelte": "1.0.2",
     "@astrojs/tailwind": "2.1.2",
     "astro": "1.6.9",
+    "i18next-fs-backend": "2.1.1",
     "lucide-svelte": "0.104.0",
     "svelte": "3.53.1",
     "tailwindcss": "3.2.4"
   },
   "devDependencies": {
     "@playwright/test": "1.28.0",
+    "astro-i18next": "1.0.0-beta.15",
     "husky": "8.0.2",
+    "i18next": "22.4.9",
     "lint-staged": "13.0.3",
     "prettier": "2.7.1",
     "prettier-plugin-astro": "0.7.0",

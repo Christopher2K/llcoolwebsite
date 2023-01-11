@@ -1,20 +1,36 @@
 ---
 import '@app/styles/app.css'
+
+import i18next from 'i18next'
+import { HeadHrefLangs } from 'astro-i18next/components'
+
 import Nav from '@app/components/Nav.svelte'
 import Footer from '@app/components/Footer.astro'
 
+export interface Props {
+  title: string
+  description: string
+}
+
 const path = new URL(Astro.request.url).pathname
+
+const { title, description } = Astro.props
+
+const lang = i18next.language
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Christopher Katoyi: Software Engineer</title>
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <HeadHrefLangs />
     <script is:inline>
       // Dark mode script
+      // Also sets initial dark mode to avoid flash
       if (
         localStorage.theme === 'dark' ||
         (!('theme' in localStorage) &&
@@ -30,7 +46,7 @@ const path = new URL(Astro.request.url).pathname
     <div
       class="max-w-[1340px] mx-auto grid grid-rows-mobile md:grid-rows-none md:grid-cols-tablet lg:grid-cols-desktop"
     >
-      <Nav client:load path={path} />
+      <Nav client:load path={path} lang={lang} />
       <main class="px-4 sm:px-6">
         <slot />
       </main>

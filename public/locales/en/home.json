@@ -1,0 +1,14 @@
+{
+  "heroTitle": {
+    "base": "I'm Chris, a ",
+    "highlight": "software engineer"
+  },
+  "heroImageAlt": "My Moonlander keyboard hand-drawn",
+  "heroTagLines": [
+    "I've been working in the industry for +8 years.",
+    "A key aspect of my work is to share knowledge.",
+    "Here are my thoughts, my projects and my mistakes.",
+    "For free!"
+  ],
+  "heroArrowLabel": "See what I'm doing"
+}

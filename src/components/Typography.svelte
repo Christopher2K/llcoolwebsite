@@ -13,9 +13,11 @@
   export let variant: TypographyVariant = 'body'
   export let important = false
   export let disableColorClasses = false
+  export let link: { href: string } | {} = {}
   let className: string = ''
   export { className as class }
 
+  $: computedTag = 'href' in link ? 'a' : tag
   $: importantClasses = important ? 'font-bold' : ''
   $: colorClasses = disableColorClasses ? '' : 'text-dark dark:text-light'
   $: classNames = [variant, colorClasses, importantClasses, className]
@@ -23,6 +25,6 @@
     .join(' ')
 </script>
 
-<svelte:element this={tag} class={classNames}>
+<svelte:element this={computedTag} class={classNames} {...link}>
   <slot />
 </svelte:element>

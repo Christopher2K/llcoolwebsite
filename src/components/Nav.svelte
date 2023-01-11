@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { Sun, Moon, X, Menu, Home, BookOpen, Book, Laptop, User } from 'lucide-svelte'
+  import { localizePath } from '@app/utils'
 
   import Typography from './Typography.svelte'
   import RoundedIconButton from './RoundedIconButton.svelte'
@@ -9,6 +10,7 @@
 
   // Props
   export let path: string
+  export let lang: string
 
   // State
   let scrollingElement: Element | null = null
@@ -18,7 +20,6 @@
   // Computed
   $: menuButtonIcon = menuOpen ? X : Menu
   $: menuButtonLabel = menuOpen ? 'Close menu' : 'Open menu'
-  $: themeButtonIcon = isDarkMode ? Sun : Moon
   $: themeButtonLabel = isDarkMode ? 'Turn on light mode' : 'Turn on dark mode'
 
   // Callbacks
@@ -57,9 +58,15 @@
   class="w-full sticky top-0 left-0 p-4 h-fit md:flex md:flex-col md:justify-start md:items-center md:gap-10 bg-light dark:bg-dark z-40"
 >
   <div class="h-[72px] md:h-auto lg:w-full flex flex-row justify-between items-center">
-    <Typography variant="subheading2" class="md:hidden">
-      <a href="/">Christopher</a>
-    </Typography>
+    <div class="flex flex-row justify-start items-end gap-4">
+      <Typography variant="subheading2" class="md:hidden">
+        <a href={localizePath('/', lang)}>Christopher</a>
+      </Typography>
+      <div class="flex flex-row justify-start items-end gap-2">
+        <Typography link={{ href: localizePath(path, 'en') }}>EN</Typography>
+        <Typography link={{ href: localizePath(path, 'fr') }}>FR</Typography>
+      </div>
+    </div>
 
     <div
       class="flex flex-col lg:flex-row-reverse justify-start lg:justify-between items-center md:gap-10 lg:gap-6 lg:w-full"
@@ -78,19 +85,10 @@
           />
         </RoundedIconButton>
 
-        <div class:invisible={isDarkMode === undefined}>
-          <RoundedIconButton
-            label={themeButtonLabel}
-            type="button"
-            on:click={switchTheme}
-          >
-            <svelte:component
-              this={themeButtonIcon}
-              class="h-6 text-neutral-50"
-              aria-hidden="true"
-            />
-          </RoundedIconButton>
-        </div>
+        <RoundedIconButton label={themeButtonLabel} type="button" on:click={switchTheme}>
+          <Sun class="dark:hidden h-6 text-neutral-50" aria-hidden="true" />
+          <Moon class="hidden dark:block h-6 text-neutral-50" aria-hidden="true" />
+        </RoundedIconButton>
       </div>
 
       <img

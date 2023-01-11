@@ -1,0 +1,14 @@
+{
+  "heroTitle": {
+    "base": "Moi c'est Christopher, un ",
+    "highlight": "developpeur"
+  },
+  "heroImageAlt": "Dessin à la main de mon clavier Moonlander",
+  "heroTagLines": [
+    "Je travaille dans la tech depuis plus de 8 ans.",
+    "Un des aspects-clef de mon job est de partager mes connaissances.",
+    "Je vous présentes mes reflexions, mes projets et mes erreurs.",
+    "Gratuitement!"
+  ],
+  "heroArrowLabel": "Voir ce que je fais"
+}
