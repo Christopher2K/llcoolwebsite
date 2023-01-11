@@ -57,7 +57,9 @@
 <nav
   class="w-full sticky top-0 left-0 p-4 h-fit md:flex md:flex-col md:justify-start md:items-center md:gap-10 bg-light dark:bg-dark z-40"
 >
-  <div class="h-[72px] md:h-auto lg:w-full flex flex-row justify-between items-center">
+  <div
+    class="h-[72px] md:h-auto lg:w-full flex flex-row md:flex-col md:gap-3 justify-between items-center"
+  >
     <div class="flex flex-row justify-start items-end gap-4">
       <Typography variant="subheading2" class="md:hidden">
         <a href={localizePath('/', lang)}>Christopher</a>
