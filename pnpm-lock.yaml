@@ -9,7 +9,9 @@ specifiers:
   astro-i18next: 1.0.0-beta.15
   husky: 8.0.2
   i18next: 22.4.9
+  i18next-browser-languagedetector: ^7.0.1
   i18next-fs-backend: 2.1.1
+  i18next-http-backend: ^2.1.1
   lint-staged: 13.0.3
   lucide-svelte: 0.104.0
   prettier: 2.7.1
@@ -26,7 +28,9 @@ dependencies:
   '@astrojs/svelte': 1.0.2_4rgu74t2n5aihruqie6ni6rao4
   '@astrojs/tailwind': 2.1.2_tailwindcss@3.2.4
   astro: 1.6.9
+  i18next-browser-languagedetector: 7.0.1
   i18next-fs-backend: 2.1.1
+  i18next-http-backend: 2.1.1
   lucide-svelte: 0.104.0_svelte@3.53.1
   svelte: 3.53.1
   svelte-i18next: 1.2.2_avjemk6yuyyhqtosw2pldh66zm
@@ -1109,7 +1113,6 @@ packages:
       node-fetch: 2.6.7
     transitivePeerDependencies:
       - encoding
-    dev: true
 
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
@@ -2020,7 +2023,6 @@ packages:
     resolution: {integrity: sha512-Pa5kFwaczXJAeHE56CHG2aWzFBMJNUNghf0Pm4SwSrEMps/PTKqW90EYWlIvhuYStf3Sn1K0vw+gH3+TLdkH1g==}
     dependencies:
       '@babel/runtime': 7.20.7
-    dev: true
 
   /i18next-fs-backend/2.1.1:
     resolution: {integrity: sha512-FTnj+UmNgT3YRml5ruRv0jMZDG7odOL/OP5PF5mOqvXud2vHrPOOs68Zdk6iqzL47cnnM0ZVkK2BAvpFeDJToA==}
@@ -2031,7 +2033,6 @@ packages:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
       - encoding
-    dev: true
 
   /i18next/22.4.9:
     resolution: {integrity: sha512-8gWMmUz460KJDQp/ob3MNUX84cVuDRY9PLFPnV8d+Qezz/6dkjxwOaH70xjrCNDO+JrUL25iXfAIN9wUkInNZw==}
@@ -2835,7 +2836,6 @@ packages:
         optional: true
     dependencies:
       whatwg-url: 5.0.0
-    dev: true
 
   /node-fetch/3.3.0:
     resolution: {integrity: sha512-BKwRP/O0UvoMKp7GNdwPlObhYGB5DQqwhEDQlNKuoqwVYSxkSZCSbHjnFFmUEtwSKRPU4kNK8PbDYYitwaE3QA==}
@@ -3820,7 +3820,6 @@ packages:
 
   /tr46/0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
-    dev: true
 
   /trim-lines/3.0.1:
     resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
@@ -4093,14 +4092,12 @@ packages:
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
-    dev: true
 
   /whatwg-url/5.0.0:
     resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
     dependencies:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
-    dev: true
 
   /which-pm-runs/1.1.0:
     resolution: {integrity: sha512-n1brCuqClxfFfq/Rb0ICg9giSZqCS+pLtccdag6C2HyufBrh3fBOiy9nb6ggRMvWOVH5GrdJskj5iGTZNxd7SA==}

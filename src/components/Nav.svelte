@@ -22,7 +22,7 @@
   $: menuButtonIcon = menuOpen ? X : Menu
   $: menuButtonLabel = menuOpen ? t('common:nav.openMenu') : t('common:nav.closeMenu')
   $: themeButtonLabel = isDarkMode
-    ? t('comomn:nav.lightModeToggle')
+    ? t('common:nav.lightModeToggle')
     : t('common:nav.darkModeToggle')
 
   // Callbacks
