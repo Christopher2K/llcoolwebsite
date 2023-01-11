@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "lightModeToggle": "Turn on the light mode",
+    "darkModeToggle": "Turn on the dark mode",
+    "profilePictureAlt": "Smilling Christopher",
+    "job": "Software Engineer @ Maple",
+    "streamer": "Educational Tech Streamer",
+    "links": {
+      "home": "Home",
+      "indieStories": "Indie stories",
+      "blog": "Blog",
+      "techSetup": "Tech setup",
+      "aboutMe": "About me"
+    }
+  }
+}

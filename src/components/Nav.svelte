@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { t } from 'i18next'
   import { onMount } from 'svelte'
   import { Sun, Moon, X, Menu, Home, BookOpen, Book, Laptop, User } from 'lucide-svelte'
   import { localizePath } from '@app/utils'
@@ -19,8 +20,10 @@
 
   // Computed
   $: menuButtonIcon = menuOpen ? X : Menu
-  $: menuButtonLabel = menuOpen ? 'Close menu' : 'Open menu'
-  $: themeButtonLabel = isDarkMode ? 'Turn on light mode' : 'Turn on dark mode'
+  $: menuButtonLabel = menuOpen ? t('common:nav.openMenu') : t('common:nav.closeMenu')
+  $: themeButtonLabel = isDarkMode
+    ? t('comomn:nav.lightModeToggle')
+    : t('common:nav.darkModeToggle')
 
   // Callbacks
   function toggleMenu() {
@@ -96,7 +99,7 @@
       <img
         class="hidden md:block rounded-full h-16 w-16"
         src="/images/chris.jpg"
-        alt="Christopher smiling"
+        alt={t('common:nav.profilePictureAlt')}
       />
     </div>
   </div>
@@ -107,8 +110,8 @@
       <Typography variant="hint2">@LLCoolChris_</Typography>
     </div>
     <div>
-      <Typography>Software Engineer @ Maple</Typography>
-      <Typography>Educational Tech Streamer</Typography>
+      <Typography>{t('common:nav.job')}</Typography>
+      <Typography>{t('common:nav.streamer')}</Typography>
     </div>
     <Typography variant="hint2">Toronto, Canada</Typography>
   </section>
@@ -123,24 +126,45 @@
     class:flex={menuOpen}
     class="md:flex absolute z-50 md:relative flex-col justify-start items-start gap-5 bg-light dark:bg-dark sm:bg-transparent px-4 md:px-0 top-full md:top-auto left-0 md:left-auto right-0 md:right-auto h-[calc(100vh-72px-theme(space.4)-theme(space.4))] md:h-auto w-full"
   >
-    <NavItem hideTextOnTablet label="Home" href="/" currentPath={path} absolute>
+    <NavItem
+      hideTextOnTablet
+      label={t('common:nav.links.home')}
+      href="/"
+      currentPath={path}
+      absolute
+    >
       <Home slot="icon" />
     </NavItem>
     <NavItem
       hideTextOnTablet
-      label="Indie stories"
+      label={t('common:nav.links.indieStories')}
       href="/indie-stories"
       currentPath={path}
     >
       <BookOpen slot="icon" />
     </NavItem>
-    <NavItem hideTextOnTablet label="Blog" href="/blog" currentPath={path}>
+    <NavItem
+      hideTextOnTablet
+      label={t('common:nav.links.blog')}
+      href="/blog"
+      currentPath={path}
+    >
       <Book slot="icon" />
     </NavItem>
-    <NavItem hideTextOnTablet label="Tech setup" href="/tech-setup" currentPath={path}>
+    <NavItem
+      hideTextOnTablet
+      label={t('common:nav.links.techSetup')}
+      href="/tech-setup"
+      currentPath={path}
+    >
       <Laptop slot="icon" />
     </NavItem>
-    <NavItem hideTextOnTablet label="About me" href="/about-me" currentPath={path}>
+    <NavItem
+      hideTextOnTablet
+      label={t('common:nav.links.aboutMe')}
+      href="/about"
+      currentPath={path}
+    >
       <User slot="icon" />
     </NavItem>
   </div>
