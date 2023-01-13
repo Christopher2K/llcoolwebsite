@@ -4,7 +4,7 @@ import '@app/styles/app.css'
 import i18next from 'i18next'
 import { HeadHrefLangs } from 'astro-i18next/components'
 
-import Nav from '@app/components/Nav.svelte'
+import Nav from '@app/components/Nav.astro'
 import Footer from '@app/components/Footer.astro'
 
 export interface Props {
@@ -46,14 +46,14 @@ const lang = i18next.language
     <div
       class="max-w-[1340px] mx-auto grid grid-rows-mobile md:grid-rows-none md:grid-cols-tablet lg:grid-cols-desktop"
     >
-      <Nav client:load path={path} lang={lang} />
+      <Nav />
       <main class="px-4 sm:px-6">
         <slot />
       </main>
     </div>
     <Footer />
 
-    <script>
+    <script is:inline>
       // Once everything is loaded
       document.documentElement.classList.add('switch-theme-animation')
     </script>

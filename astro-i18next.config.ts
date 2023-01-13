@@ -4,7 +4,7 @@ const config: AstroI18nextConfig = {
   defaultLocale: 'en',
   locales: ['en', 'fr'],
   namespaces: ['common', 'home'],
-  load: ['client', 'server'],
+  load: ['server'],
   i18nextClient: {
     detection: {
       order: ['querystring', 'path'],

@@ -20,7 +20,7 @@
     "@astrojs/node": "3.0.0",
     "@astrojs/svelte": "1.0.2",
     "@astrojs/tailwind": "2.1.2",
-    "astro": "1.6.9",
+    "astro": "1.9.2",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-fs-backend": "2.1.1",
     "i18next-http-backend": "^2.1.1",

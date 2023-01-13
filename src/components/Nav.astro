@@ -1,0 +1,184 @@
+---
+import { t } from 'i18next'
+import { localizePath } from 'astro-i18next'
+import { Sun, Moon, X, Menu, Home, BookOpen, Book, Laptop, User } from 'lucide-svelte'
+
+import Typography from './Typography.svelte'
+import RoundedIconButton from './RoundedIconButton.svelte'
+import NavItem from './NavItem.svelte'
+import Socials from './Socials.svelte'
+
+const path = new URL(Astro.request.url).pathname
+const {} = Astro.props
+---
+
+<script>
+  const navMenu = document.querySelector('#navMenu')
+  const openMenuBtn = document.querySelector('#openMenuBtn')
+  const closeMenuBtn = document.querySelector('#closeMenuBtn')
+  const lightModeBtn = document.querySelector('#lightModeBtn')
+  const darkModeBtn = document.querySelector('#darkModeBtn')
+
+  function openMenu() {
+    navMenu?.classList.remove('hidden')
+    navMenu?.classList.add('flex')
+    openMenuBtn?.classList.add('hidden')
+    closeMenuBtn?.classList.remove('hidden')
+  }
+
+  function closeMenu() {
+    navMenu?.classList.add('hidden')
+    navMenu?.classList.remove('flex')
+    openMenuBtn?.classList.remove('hidden')
+    closeMenuBtn?.classList.add('hidden')
+  }
+
+  function turnLightModeOn() {
+    localStorage.setItem('theme', 'light')
+    document.documentElement.classList.remove('dark')
+  }
+
+  function turnDarkModeOn() {
+    localStorage.setItem('theme', 'dark')
+    document.documentElement.classList.add('dark')
+  }
+
+  openMenuBtn?.addEventListener('click', openMenu)
+  closeMenuBtn?.addEventListener('click', closeMenu)
+  lightModeBtn?.addEventListener('click', turnLightModeOn)
+  darkModeBtn?.addEventListener('click', turnDarkModeOn)
+</script>
+
+<nav
+  class="w-full sticky top-0 left-0 p-4 h-fit md:flex md:flex-col md:justify-start md:items-center md:gap-10 bg-light dark:bg-dark z-40"
+>
+  <div
+    class="h-[72px] md:h-auto lg:w-full flex flex-row md:flex-col md:gap-3 justify-between items-center"
+  >
+    <div class="flex flex-row justify-start items-end gap-4">
+      <Typography variant="subheading2" class="md:hidden">
+        <a href={localizePath('/')}>Christopher</a>
+      </Typography>
+      <div class="flex flex-row justify-start items-end gap-2">
+        <Typography link={{ href: localizePath(path, 'en') }}>EN</Typography>
+        <Typography link={{ href: localizePath(path, 'fr') }}>FR</Typography>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col lg:flex-row-reverse justify-start lg:justify-between items-center md:gap-10 lg:gap-6 lg:w-full"
+    >
+      <div class="flex flex-row justify-start items-center gap-4">
+        <div class="menu-buttons">
+          <RoundedIconButton
+            id="openMenuBtn"
+            class="md:hidden"
+            label={t('common:nav.openMenu')}
+            type="button"
+          >
+            <Menu class="h-6 text-neutral-50" aria-hidden="true" />
+          </RoundedIconButton>
+
+          <RoundedIconButton
+            id="closeMenuBtn"
+            class="hidden md:hidden"
+            label={t('common:nav.openMenu')}
+            type="button"
+          >
+            <X class="h-6 text-neutral-50" aria-hidden="true" />
+          </RoundedIconButton>
+        </div>
+
+        <div class="themes-buttons">
+          <RoundedIconButton
+            id="lightModeBtn"
+            class="hidden dark:flex"
+            label={t('common:nav.darkModeToggle')}
+            type="button"
+          >
+            <Sun class="h-6 text-neutral-50" aria-hidden="true" />
+          </RoundedIconButton>
+
+          <RoundedIconButton
+            id="darkModeBtn"
+            class="dark:hidden"
+            label={t('common:nav.lightModeToggle')}
+            type="button"
+          >
+            <Moon class="h-6 text-neutral-50" aria-hidden="true" />
+          </RoundedIconButton>
+        </div>
+      </div>
+
+      <img
+        class="hidden md:block rounded-full h-16 w-16"
+        src="/images/chris.jpg"
+        alt={t('common:nav.profilePictureAlt')}
+      />
+    </div>
+  </div>
+
+  <section class="hidden self-start lg:flex flex-col gap-4">
+    <div>
+      <Typography>Christopher N. Katoyi Kaba</Typography>
+      <Typography variant="hint2">@LLCoolChris_</Typography>
+    </div>
+    <div>
+      <Typography>{t('common:nav.job')}</Typography>
+      <Typography>{t('common:nav.streamer')}</Typography>
+    </div>
+    <Typography variant="hint2">Toronto, Canada</Typography>
+  </section>
+
+  <section class="hidden self-start lg:flex flex-row justify-start items-start gap-4">
+    <Socials />
+  </section>
+
+  <!-- Nav menu -->
+  <div
+    id="navMenu"
+    class="hidden md:flex absolute z-50 md:relative flex-col justify-start items-start gap-5 bg-light dark:bg-dark sm:bg-transparent px-4 md:px-0 top-full md:top-auto left-0 md:left-auto right-0 md:right-auto h-[calc(100vh-72px-theme(space.4)-theme(space.4))] md:h-auto w-full"
+  >
+    <NavItem
+      hideTextOnTablet
+      label={t('common:nav.links.home')}
+      href={localizePath('/')}
+      currentPath={path}
+      absolute
+    >
+      <Home slot="icon" />
+    </NavItem>
+    <NavItem
+      hideTextOnTablet
+      label={t('common:nav.links.indieStories')}
+      href={localizePath('/indie-stories')}
+      currentPath={path}
+    >
+      <BookOpen slot="icon" />
+    </NavItem>
+    <NavItem
+      hideTextOnTablet
+      label={t('common:nav.links.blog')}
+      href={localizePath('/blog')}
+      currentPath={path}
+    >
+      <Book slot="icon" />
+    </NavItem>
+    <NavItem
+      hideTextOnTablet
+      label={t('common:nav.links.techSetup')}
+      href={localizePath('/tech-setup')}
+      currentPath={path}
+    >
+      <Laptop slot="icon" />
+    </NavItem>
+    <NavItem
+      hideTextOnTablet
+      label={t('common:nav.links.aboutMe')}
+      href={localizePath('/about')}
+      currentPath={path}
+    >
+      <User slot="icon" />
+    </NavItem>
+  </div>
+</nav>
