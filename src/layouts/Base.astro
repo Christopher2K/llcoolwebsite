@@ -12,14 +12,12 @@ export interface Props {
   description: string
 }
 
-const path = new URL(Astro.request.url).pathname
-
 const { title, description } = Astro.props
 
 const lang = i18next.language
 ---
 
-<html lang={lang}>
+<html lang={lang} class="text-[12px] sm:text-[14px] lg:text-[16px]">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
