@@ -8,7 +8,7 @@
     "prepare": "husky install",
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "pnpm localize && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "test:e2e": "playwright test",
