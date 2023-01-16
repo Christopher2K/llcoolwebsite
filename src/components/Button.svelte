@@ -4,13 +4,15 @@
   export let label: string
   export let link: { href: string } | undefined = undefined
   export let fullWidth: boolean = false
+  let className: string = ''
+  export { className as class }
 
   $: tag = Boolean(link) ? 'a' : 'button'
 </script>
 
 <svelte:element
   this={tag}
-  class="element relative p-5 bg-primary-900 dark:bg-secondary-900 w-full rounded-full flex flex-row justify-start items-center"
+  class="element relative p-5 bg-primary-900 dark:bg-secondary-900 w-full rounded-full flex flex-row justify-start items-center {className}"
   class:w-fit={!fullWidth}
   class:w-full={fullWidth}
   aria-label={label}
