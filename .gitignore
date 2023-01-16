@@ -20,3 +20,7 @@ pnpm-debug.log*
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+
+# i18n
+pages/fr
