@@ -4,6 +4,7 @@ import Base from '@app/layouts/Base.astro'
 import Hero from '@app/components/Hero.svelte'
 import Section from '@app/components/Section.svelte'
 import ArticleShowcase from '@app/components/ArticleShowcase.svelte'
+import ShowcaseContainer from '@app/components/ShowcaseContainer.astro'
 
 changeLanguage('en')
 ---
@@ -24,7 +25,9 @@ changeLanguage('en')
   </Section>
 
   <Section title="Previous stories">
-    <ArticleShowcase />
-    <ArticleShowcase />
+    <ShowcaseContainer>
+      <ArticleShowcase />
+      <ArticleShowcase />
+    </ShowcaseContainer>
   </Section>
 </Base>
