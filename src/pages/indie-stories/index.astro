@@ -5,6 +5,8 @@ import Hero from '@app/components/Hero.svelte'
 import Section from '@app/components/Section.svelte'
 import ArticleShowcase from '@app/components/ArticleShowcase.svelte'
 import ShowcaseContainer from '@app/components/ShowcaseContainer.astro'
+import Button from '@app/components/Button.svelte'
+import SectionCenteredFooter from '@app/components/SectionCenteredFooter.astro'
 
 changeLanguage('en')
 ---
@@ -29,5 +31,9 @@ changeLanguage('en')
       <ArticleShowcase />
       <ArticleShowcase />
     </ShowcaseContainer>
+
+    <SectionCenteredFooter>
+      <Button label="Load more articles" />
+    </SectionCenteredFooter>
   </Section>
 </Base>
