@@ -13,7 +13,7 @@ specifiers:
   i18next-fs-backend: 2.1.1
   i18next-http-backend: ^2.1.1
   lint-staged: 13.0.3
-  lucide-svelte: 0.104.0
+  lucide-svelte: 0.115.0
   prettier: 2.7.1
   prettier-plugin-astro: 0.7.0
   prettier-plugin-svelte: 2.8.0
@@ -31,7 +31,7 @@ dependencies:
   i18next-browser-languagedetector: 7.0.1
   i18next-fs-backend: 2.1.1
   i18next-http-backend: 2.1.1
-  lucide-svelte: 0.104.0_svelte@3.53.1
+  lucide-svelte: 0.115.0_svelte@3.53.1
   svelte: 3.53.1
   svelte-i18next: 1.2.2_avjemk6yuyyhqtosw2pldh66zm
   tailwindcss: 3.2.4
@@ -2112,8 +2112,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-svelte/0.104.0_svelte@3.53.1:
-    resolution: {integrity: sha512-PhckIn28E571Kx2gs2SVh5gc0RlDge521AE63ce4c8gRUMYeo9USPUr80bt/26J5+8qce+hw1zRjx/ag2BqBgw==}
+  /lucide-svelte/0.115.0_svelte@3.53.1:
+    resolution: {integrity: sha512-kR7XlwoSVjGX+jwOiHKjTCDMPcTKrsKGyYnJkgW55wyKmWAzfOSESDGuRHcfsRAIQgg133mDNtCm++S8V5rRjg==}
     peerDependencies:
       svelte: ^3.49.0
     dependencies:
