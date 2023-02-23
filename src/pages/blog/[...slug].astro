@@ -1,0 +1,18 @@
+---
+import { localizePath } from 'astro-i18next'
+import { getEntryBySlug } from 'astro:content'
+import { changeLanguage } from 'i18next'
+
+changeLanguage('en')
+
+const _fakePath = localizePath()
+const lng = _fakePath === '/' ? 'en' : _fakePath.substring(1)
+const { slug } = Astro.params
+const entry = await getEntryBySlug('blog', `${lng}/${slug}`)
+
+if (!entry) return Astro.redirect('404')
+
+const { Content } = await entry.render()
+---
+
+<Content />

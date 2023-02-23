@@ -8,15 +8,18 @@
     "prepare": "husky install",
     "dev": "astro dev",
     "start": "astro dev",
+    "sync": "astro sync",
     "build": "pnpm localize && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "test:e2e": "playwright test",
     "lint": "prettier \"./**/*.{md,mdx,json,js,mjs,cjs,ts,svelte,astro,html}\" --write",
     "lint:ci": "prettier \"./**/*.{md,mdx,json,js,mjs,cjs,ts,svelte,astro,html}\" --check",
-    "localize": "astro-i18next generate"
+    "localize": "astro-i18next generate",
+    "postinstall": "astro sync"
   },
   "dependencies": {
+    "@astrojs/mdx": "0.17.0",
     "@astrojs/node": "5.0.3",
     "@astrojs/svelte": "2.0.2",
     "@astrojs/tailwind": "3.0.1",

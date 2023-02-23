@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config'
 import node from '@astrojs/node'
 import svelte from '@astrojs/svelte'
+import mdx from '@astrojs/mdx'
 
 // https://astro.build/config
 import tailwind from '@astrojs/tailwind'
@@ -18,6 +19,11 @@ export default defineConfig({
   integrations: [
     astroI18next(),
     svelte(),
+    mdx({
+      extendMarkdownConfig: false,
+      smartypants: true,
+      gfm: true,
+    }),
     tailwind({
       config: { applyBaseStyles: false },
     }),
