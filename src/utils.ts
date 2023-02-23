@@ -1,12 +1,8 @@
-import config from '../astro-i18next.config'
+import { localizePath } from 'astro-i18next'
 
-export function localizePath(path: string, lang: string) {
-  const [maybeLocale, ...rest] = path.slice(1).split('/')
-  let fragment = path
-  if (maybeLocale && config.locales.includes(maybeLocale)) {
-    fragment = `/${rest.join('/')}`
-  }
+export function getCurrentLng() {
+  const emptyPath = localizePath()
+  const lng = emptyPath === '/' ? 'en' : emptyPath.substring(1)
 
-  if (lang === 'en') return fragment
-  return `/${lang}${fragment}`
+  return lng
 }

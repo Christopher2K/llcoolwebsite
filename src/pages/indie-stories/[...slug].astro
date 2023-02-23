@@ -2,7 +2,6 @@
 import { getEntryBySlug } from 'astro:content'
 import { changeLanguage } from 'i18next'
 
-import Base from '@app/layouts/Base.astro'
 import { getCurrentLng } from '@app/utils'
 
 changeLanguage('en')
@@ -10,13 +9,11 @@ changeLanguage('en')
 const lng = getCurrentLng()
 
 const { slug } = Astro.params
-const entry = await getEntryBySlug('blog', `${lng}/${slug}`)
+const entry = await getEntryBySlug('indieStories', `${lng}/${slug}`)
 
 if (!entry) return Astro.redirect('404')
 
 const { Content } = await entry.render()
 ---
 
-<Base title="" description="">
-  <Content />
-</Base>
+<Content />
