@@ -23,7 +23,7 @@ pnpm-debug.log*
 
 
 # i18n
-pages/fr
+src/pages/fr
 
 # codegen
 .astro

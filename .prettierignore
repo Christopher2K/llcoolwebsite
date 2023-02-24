@@ -3,3 +3,4 @@ node_modules
 playwright-report
 .playwright/
 .astro/
+src/pages/fr
