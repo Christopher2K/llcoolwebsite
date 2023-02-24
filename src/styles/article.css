@@ -1,0 +1,60 @@
+article {
+  margin-bottom: theme('space.12');
+}
+
+article :global(h2) {
+  margin-top: theme('space.20');
+  margin-bottom: theme('space.12');
+}
+
+article :global(h3) {
+  margin-top: theme('space.16');
+  margin-bottom: theme('space.10');
+}
+
+article :global(h4) {
+  margin-top: theme('space.12');
+  margin-bottom: theme('space.8');
+}
+
+article :global(p) {
+  margin-bottom: theme('space.8');
+}
+
+article :global(ol),
+article :global(ul) {
+  padding-left: theme('space.8');
+  margin-bottom: theme('space.8');
+}
+
+article :global(p code) {
+  color: theme('colors.neutral.50');
+  background-color: theme('colors.neutral.600');
+  border-radius: theme('borderRadius.md');
+  padding: 0 theme('space.1');
+}
+
+:global(html.dark) article :global(p code) {
+  background-color: theme('colors.neutral.50');
+  color: theme('colors.neutral.600');
+}
+
+/* Specifics */
+
+article :global(ul) {
+  list-style: disc inside;
+}
+
+article :global(ol) {
+  list-style: decimal inside;
+}
+
+article :global(p:has(+ ul, + ol, img)) {
+  margin-bottom: theme('space.4');
+}
+
+article :global(pre) {
+  padding: theme('spacing.5');
+  border-radius: theme('borderRadius.lg');
+  margin-bottom: theme('space.8');
+}

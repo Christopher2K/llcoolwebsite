@@ -1,5 +1,5 @@
 <script lang="ts">
-  type TypographyTag = 'p' | 'h1' | 'h2' | 'h3' | 'h4'
+  type TypographyTag = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'li'
   type TypographyVariant =
     | 'heading2'
     | 'heading1'

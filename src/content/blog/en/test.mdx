@@ -6,4 +6,48 @@ heroImage: /nothing
 itemImage: /nothing
 ---
 
+import Typography from '@app/components/Typography.svelte'
+
+export const components = {
+  h1: props => <Typography tag="h2" variant="subheading2" {...props} />,
+  h2: props => <Typography tag="h3" variant="subheading1" {...props} />,
+  h3: props => <Typography tag="h4" variant="bigbody" {...props} />,
+  p: props => <Typography tag="p" variant="body" {...props} />,
+  li: props => <Typography tag="li" variant="body" {...props} />,
+}
+
+# Heading 1
+
+Corem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
+
+## Heading 2
+
+Corem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
+
+### Heading 3
+
+This is a paragraph containing a `code` text. This sentence contains a **bold** text. There's even _italic_ text. This time, it contains a [link](/)
+
+> This is a blockquote
+
+This is an ordered list:
+
+1. List 1
+2. List 2
+3. List 3
+
+This is an unordered list:
+
+- List 1
+- List 2
+- List 3
+
+```javascript
+const test = 'test'
+const myFunction = () => {
+  console.log('test')
+  return ''
+}
+```
+
 This is my first article written in English using MDX and Astro

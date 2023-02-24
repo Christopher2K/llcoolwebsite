@@ -1,12 +1,12 @@
 import { z, defineCollection } from 'astro:content'
 
-const articleSchema = {
+const articleSchema = z.object({
   title: z.string(),
   publishingDate: z.date(),
   tags: z.array(z.string()),
   heroImageUrl: z.string(), // Displayed as a hero section in the blog page
   thumbnailImageUrl: z.string(), // Displayed in the article list
-}
+})
 
 const blogCollection = defineCollection({
   schema: articleSchema,

@@ -42,53 +42,53 @@
   .heading2 {
     font-family: theme('fontFamily.title');
     font-size: theme('fontSize.6xl');
-    line-height: 130%;
+    line-height: 160%;
   }
 
   .heading1 {
     font-family: theme('fontFamily.title');
     font-size: theme('fontSize.5xl');
-    line-height: 130%;
+    line-height: 160%;
   }
 
   .subheading2 {
     font-family: theme('fontFamily.body');
-    font-size: theme('fontSize.3xl');
-    line-height: 130%;
+    font-size: theme('fontSize.4xl');
+    line-height: 160%;
     font-weight: 500;
   }
 
   .subheading1 {
     font-family: theme('fontFamily.body');
-    font-size: theme('fontSize.2xl');
-    line-height: 130%;
+    font-size: theme('fontSize.3xl');
+    line-height: 160%;
     font-weight: 500;
   }
 
   .bigbody {
     font-family: theme('fontFamily.body');
-    font-size: theme('fontSize.xl');
-    line-height: 130%;
+    font-size: theme('fontSize.2xl');
+    line-height: 160%;
     font-weight: 500;
   }
 
   .body {
     font-family: theme('fontFamily.body');
     font-size: theme('fontSize.xl');
-    line-height: 130%;
+    line-height: 160%;
     font-weight: normal;
   }
 
   .hint2 {
     font-family: theme('fontFamily.body');
-    font-size: theme('fontSize.sm');
-    line-height: 130%;
+    font-size: theme('fontSize.base');
+    line-height: 150%;
     font-weight: normal;
   }
 
   .hint1 {
     font-family: theme('fontFamily.body');
-    font-size: theme('fontSize.xs');
+    font-size: theme('fontSize.sm');
     font-weight: normal;
   }
 }
