@@ -46,22 +46,30 @@ const { title, description, publishingDate, heroImageUrl, heroImageCaption, tags
 
 <style>
   article {
-    @apply mb-12;
+    @apply mb-12 text-dark;
 
     :global(h2) {
-      @apply mt-20 mb-12;
+      @apply subheading2 mt-20 mb-12;
     }
 
     :global(h3) {
-      @apply mt-16 mb-10;
+      @apply subheading1 mt-16 mb-10;
     }
 
     :global(h4) {
-      @apply mt-12 mb-8;
+      @apply bigbody mt-12 mb-8;
     }
 
     :global(p) {
-      @apply mb-8;
+      @apply body mb-8;
+    }
+
+    :global(a) {
+      @apply underline;
+    }
+
+    :global(li) {
+      @apply body;
     }
 
     :global(ol),
@@ -101,6 +109,8 @@ const { title, description, publishingDate, heroImageUrl, heroImageCaption, tags
 
   /* Dark mode */
   :global(html.dark) article {
+    @apply text-light;
+
     :global(p code) {
       @apply bg-neutral-50 text-neutral-600;
     }
