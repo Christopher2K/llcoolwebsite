@@ -1,4 +1,6 @@
 ---
+import { LanguageSelector } from 'astro-i18next/components'
+
 import Typography from './Typography.svelte'
 import Socials from './Socials.svelte'
 ---
@@ -12,6 +14,10 @@ import Socials from './Socials.svelte'
     <div class="mb-6">
       <Socials size="lg" theme="light" />
     </div>
+
+    <LanguageSelector
+      class="py-2 px-4 mb-6 hint2 border-2 border-light rounded-md bg-primary-700 dark:bg-secondary-700 text-light"
+    />
 
     <Typography class="text-light" disableColorClasses
       >All rights reserved © Christopher N. Katoyi Kaba - 2022</Typography

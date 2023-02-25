@@ -59,17 +59,13 @@ const {} = Astro.props
       <Typography variant="subheading2" class="md:hidden">
         <a href={localizePath('/')}>Christopher</a>
       </Typography>
-      <div class="flex flex-row justify-start items-end gap-2">
-        <Typography link={{ href: localizePath(path, 'en') }}>EN</Typography>
-        <Typography link={{ href: localizePath(path, 'fr') }}>FR</Typography>
-      </div>
     </div>
 
     <div
       class="flex flex-col lg:flex-row-reverse justify-start lg:justify-between items-center md:gap-10 lg:gap-6 lg:w-full"
     >
       <div class="flex flex-row justify-start items-center gap-4">
-        <div class="menu-buttons">
+        <div class="menu-buttons md:hidden">
           <RoundedIconButton
             id="openMenuBtn"
             class="md:hidden"
