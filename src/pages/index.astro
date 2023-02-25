@@ -1,5 +1,7 @@
 ---
-import { t, changeLanguage } from 'i18next'
+import i18n, { t, changeLanguage } from 'i18next'
+import { getCollection } from 'astro:content'
+
 import Base from '@app/layouts/Base.astro'
 import Hero from '@app/components/Hero.svelte'
 import Section from '@app/components/Section.svelte'
@@ -9,6 +11,10 @@ import Article from '@app/components/Article.svelte'
 import Button from '@app/components/Button.svelte'
 
 changeLanguage('en')
+
+const lng = i18n.language
+
+const lastBlogArticles = (await getCollection('blog')).slice(0, 4)
 ---
 
 <Base title="" description="">
