@@ -1,79 +1,112 @@
 ---
+import { format } from 'date-fns'
+import { enCA, fr } from 'date-fns/locale'
+import Typography from '@app/components/Typography.svelte'
+import type { ArticleSchema } from '@app/model'
+import { getCurrentLng } from '@app/utils'
+
 import Base from './Base.astro'
 
-export interface Props {
-  title: string
-  description: string
-}
+export interface Props extends Omit<ArticleSchema, 'thumbnailImageUrl'> {}
 
-const { title, description } = Astro.props
+const locale = { en: enCA, fr }
+const lng = getCurrentLng() as keyof typeof locale
+const currentLocale = locale[lng]
+
+const { title, description, publishingDate, heroImageUrl, heroImageCaption, tags } =
+  Astro.props
 ---
 
 <Base {title} {description}>
-  <article>
+  <Typography class="capitalize my-8"
+    >{format(publishingDate, 'PPPP', { locale: currentLocale })}</Typography
+  >
+  <div class="flex flex-row justify-start items-start gap-2 flex-wrap mb-8">
+    {
+      tags.map(tag => (
+        <Typography
+          disableColorClasses
+          tag="span"
+          class="bg-neutral-500 px-2 rounded-md text-neutral-50"
+        >
+          {tag}
+        </Typography>
+      ))
+    }
+  </div>
+  <Typography tag="h1" variant="heading2" class="mb-8">{title}</Typography>
+  <div class="flex flex-col justify-start items-center">
+    <img class="rounded-md mb-2" src={heroImageUrl} />
+    <Typography tag="span" variant="hint2" class="mb-8">{heroImageCaption}</Typography>
+  </div>
+  <article class="px-8">
     <slot />
   </article>
 </Base>
 
 <style>
   article {
-    margin-bottom: theme('space.12');
+    @apply mb-12;
+
+    :global(h2) {
+      @apply mt-20 mb-12;
+    }
+
+    :global(h3) {
+      @apply mt-16 mb-10;
+    }
+
+    :global(h4) {
+      @apply mt-12 mb-8;
+    }
+
+    :global(p) {
+      @apply mb-8;
+    }
+
+    :global(ol),
+    :global(ul) {
+      @apply pl-8 mb-8;
+    }
+
+    :global(ul) {
+      @apply list-disc list-inside;
+    }
+
+    :global(ol) {
+      @apply list-decimal list-inside;
+    }
+
+    :global(p code) {
+      @apply text-neutral-50 bg-neutral-600 rounded-md px-1;
+    }
+
+    :global(blockquote) {
+      @apply py-8 bg-neutral-200 mb-8 border-l-8 border-l-neutral-500;
+
+      :global(p) {
+        @apply bigbody italic pl-8 !important;
+      }
+    }
+
+    :global(pre) {
+      @apply p-5 rounded-lg mb-8;
+    }
+
+    /* Specifics */
+    :global(p:has(+ ul, + ol, img)) {
+      @apply mb-4 bigbody;
+    }
   }
 
-  article :global(h2) {
-    margin-top: theme('space.20');
-    margin-bottom: theme('space.12');
-  }
+  /* Dark mode */
+  :global(html.dark) article {
+    :global(p code) {
+      @apply bg-neutral-50 text-neutral-600;
+    }
 
-  article :global(h3) {
-    margin-top: theme('space.16');
-    margin-bottom: theme('space.10');
-  }
-
-  article :global(h4) {
-    margin-top: theme('space.12');
-    margin-bottom: theme('space.8');
-  }
-
-  article :global(p) {
-    margin-bottom: theme('space.8');
-  }
-
-  article :global(ol),
-  article :global(ul) {
-    padding-left: theme('space.8');
-    margin-bottom: theme('space.8');
-  }
-
-  article :global(p code) {
-    color: theme('colors.neutral.50');
-    background-color: theme('colors.neutral.600');
-    border-radius: theme('borderRadius.md');
-    padding: 0 theme('space.1');
-  }
-
-  :global(html.dark) article :global(p code) {
-    background-color: theme('colors.neutral.50');
-    color: theme('colors.neutral.600');
-  }
-
-  /* Specifics */
-
-  article :global(ul) {
-    list-style: disc inside;
-  }
-
-  article :global(ol) {
-    list-style: decimal inside;
-  }
-
-  article :global(p:has(+ ul, + ol, img)) {
-    margin-bottom: theme('space.4');
-  }
-
-  article :global(pre) {
-    padding: theme('spacing.5');
-    border-radius: theme('borderRadius.lg');
-    margin-bottom: theme('space.8');
+    :global(blockquote) {
+      @apply bg-neutral-700;
+    }
   }
 </style>

@@ -1,12 +1,6 @@
-import { z, defineCollection } from 'astro:content'
+import { defineCollection } from 'astro:content'
 
-const articleSchema = z.object({
-  title: z.string(),
-  publishingDate: z.date(),
-  tags: z.array(z.string()),
-  heroImageUrl: z.string(), // Displayed as a hero section in the blog page
-  thumbnailImageUrl: z.string(), // Displayed in the article list
-})
+import { articleSchema } from '@app/model'
 
 const blogCollection = defineCollection({
   schema: articleSchema,

@@ -1,7 +1,9 @@
 ---
 import { getEntryBySlug } from 'astro:content'
 import { changeLanguage } from 'i18next'
+
 import Article from '@app/layouts/Article.astro'
+import type { ArticleSchema } from '@app/model'
 import { getCurrentLng } from '@app/utils'
 
 changeLanguage('en')
@@ -11,8 +13,10 @@ const { slug } = Astro.params
 const entry = await getEntryBySlug('blog', `${lng}/${slug}`)
 if (!entry) return Astro.redirect('404')
 const { Content } = await entry.render()
+const { title, description, tags, publishingDate, heroImageUrl, heroImageCaption } =
+  entry.data as ArticleSchema
 ---
 
-<Article title="" description="">
+<Article {title} {description} {tags} {publishingDate} {heroImageUrl} {heroImageCaption}>
   <Content />
 </Article>

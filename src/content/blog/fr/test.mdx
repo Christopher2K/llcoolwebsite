@@ -1,9 +1,19 @@
 ---
 title: Mon premier article de blog
-date: 2023-02-23
+publishingDate: 2023-02-23
 tags: [test, javascript]
 heroImage: /nothing
 itemImage: /nothing
 ---
+
+import Typography from '@app/components/Typography.svelte'
+
+export const components = {
+  h1: props => <Typography tag="h2" variant="subheading2" {...props} />,
+  h2: props => <Typography tag="h3" variant="subheading1" {...props} />,
+  h3: props => <Typography tag="h4" variant="bigbody" {...props} />,
+  p: props => <Typography tag="p" variant="body" {...props} />,
+  li: props => <Typography tag="li" variant="body" {...props} />,
+}
 
 Voici mon premier article écrit en Français en utilisant MDX et Astro
