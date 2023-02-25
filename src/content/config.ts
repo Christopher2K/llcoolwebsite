@@ -10,7 +10,7 @@ const indieStoriesCollection = defineCollection({
   schema: articleSchema,
 })
 
-export const collection = {
+export const collections = {
   blog: blogCollection,
   indieStories: indieStoriesCollection,
 }

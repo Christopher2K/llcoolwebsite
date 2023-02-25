@@ -15,7 +15,8 @@
     "test:e2e": "playwright test",
     "lint": "prettier \"./**/*.{md,mdx,json,js,mjs,cjs,ts,svelte,astro,html}\" --write",
     "lint:ci": "prettier \"./**/*.{md,mdx,json,js,mjs,cjs,ts,svelte,astro,html}\" --check",
-    "localize": "astro-i18next generate",
+    "clean": "rm -rf ./src/pages/fr",
+    "localize": "pnpm run clean && astro-i18next generate",
     "postinstall": "astro sync"
   },
   "dependencies": {
