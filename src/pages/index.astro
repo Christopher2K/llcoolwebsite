@@ -2,6 +2,7 @@
 import i18n, { t, changeLanguage } from 'i18next'
 import { localizePath } from 'astro-i18next'
 import { isBefore, isAfter } from 'date-fns'
+import { Image } from '@astrojs/image/components'
 import { getCollection } from 'astro:content'
 import Base from '@app/layouts/Base.astro'
 import Hero from '@app/components/Hero.svelte'
@@ -45,7 +46,15 @@ const shouldShowBlogMoreBtn = blogArticles.length > 3
       t('home:heroTagLines.3'),
     ]}
     arrowLabel={t('home:heroArrowLabel')}
-  />
+  >
+    <Image
+      class="hidden sm:block w-1/2 h-auto mx-auto"
+      src="/images/keyboard.png"
+      alt={t('home:heroImageAlt')}
+      width={1100}
+      height={530}
+    />
+  </Hero>
 
   <Section title="My latest video">
     <iframe
@@ -67,9 +76,17 @@ const shouldShowBlogMoreBtn = blogArticles.length > 3
             href={localizePath(`/indie-stories/${getArticleSlug(slug)}`)}
             title={data.title}
             date={data.publishingDate}
-            imageSrc={data.thumbnailImageUrl}
-            imageAlt={data.thumbnailImageAlt}
-          />
+          >
+            <Image
+              slot="image"
+              class="rounded-lg"
+              src={data.thumbnailImageUrl}
+              alt={data.thumbnailImageAlt}
+              width={1080}
+              height={1920}
+              aspectRatio="9:16"
+            />
+          </Article>
         ))
       }
     </ArticleContainer>
@@ -98,7 +115,17 @@ const shouldShowBlogMoreBtn = blogArticles.length > 3
             date={data.publishingDate}
             imageSrc={data.thumbnailImageUrl}
             imageAlt={data.thumbnailImageAlt}
-          />
+          >
+            <Image
+              slot="image"
+              class="rounded-lg"
+              src={data.thumbnailImageUrl}
+              alt={data.thumbnailImageAlt}
+              width={1080}
+              height={1920}
+              aspectRatio="9:16"
+            />
+          </Article>
         ))
       }
     </ArticleContainer>

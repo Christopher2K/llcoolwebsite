@@ -4,6 +4,7 @@
     "baseUrl": "./src",
     "paths": {
       "@app/*": "*"
-    }
+    },
+    "types": ["@astrojs/image/client"]
   }
 }

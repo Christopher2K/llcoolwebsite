@@ -2,6 +2,7 @@
 import { format } from 'date-fns'
 import { enCA, fr } from 'date-fns/locale/index.js'
 import Typography from '@app/components/Typography.svelte'
+import { Image } from '@astrojs/image/components'
 import type { ArticleSchema } from '@app/model'
 import { getCurrentLng } from '@app/utils'
 
@@ -36,8 +37,18 @@ const { title, description, publishingDate, heroImageUrl, heroImageCaption, tags
   </div>
   <Typography tag="h1" variant="heading2" class="mb-8">{title}</Typography>
   <div class="flex flex-col justify-start items-center">
-    <img class="rounded-md mb-2" src={heroImageUrl} />
-    <Typography tag="span" variant="hint2" class="mb-8">{heroImageCaption}</Typography>
+    <Image
+      class="rounded-md mb-2"
+      src={heroImageUrl}
+      alt={heroImageCaption}
+      aspectRatio="16:9"
+      width={1920}
+      height={1080}
+    />
+
+    <Typography tag="span" variant="hint2" class="mb-8" aria-hidden="true"
+      >{heroImageCaption}</Typography
+    >
   </div>
   <article class="px-8">
     <slot />

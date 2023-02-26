@@ -1,5 +1,6 @@
 ---
 import { changeLanguage } from 'i18next'
+import { Image } from '@astrojs/image/components'
 import Base from '@app/layouts/Base.astro'
 import Hero from '@app/components/Hero.svelte'
 import Section from '@app/components/Section.svelte'
@@ -15,10 +16,16 @@ changeLanguage('en')
 <Base>
   <Hero
     title={[`Blog `, `articles`]}
-    imageSrc="/images/shelf.png"
-    imageAlt="A shelf with some books"
     tagLines={[`I might teach you one or two things about development.`]}
-  />
+  >
+    <Image
+      class="hidden sm:block w-1/2 h-auto mx-auto"
+      src="/images/shelf.png"
+      alt="A shelf with some books"
+      width={1600}
+      height={470}
+    />
+  </Hero>
 
   <Section title="Latest article">
     <ArticleShowcase />

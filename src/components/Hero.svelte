@@ -2,13 +2,10 @@
   import { ArrowDown } from 'lucide-svelte'
 
   import Typography from './Typography.svelte'
-  import Image from './Image.svelte'
   import HighlightedTypography from './HighlightedTypography.svelte'
   import RoundedIconButton from './RoundedIconButton.svelte'
 
   export let title: [string, string]
-  export let imageSrc: string
-  export let imageAlt: string
   export let tagLines: string
   export let arrowLabel: string = 'Learn more'
 
@@ -23,7 +20,7 @@
     <HighlightedTypography>{highlightedTitlePart}</HighlightedTypography>
   </Typography>
 
-  <Image class="hidden sm:block w-1/2 h-auto" src={imageSrc} alt={imageAlt} />
+  <slot />
 
   <div>
     {#each tagLines as lines}

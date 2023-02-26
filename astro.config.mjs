@@ -2,12 +2,10 @@ import { defineConfig } from 'astro/config'
 import node from '@astrojs/node'
 import svelte from '@astrojs/svelte'
 import mdx from '@astrojs/mdx'
-
-// https://astro.build/config
+import image from '@astrojs/image'
 import tailwind from '@astrojs/tailwind'
 import astroI18next from 'astro-i18next'
 
-// https://astro.build/config
 export default defineConfig({
   output: 'server',
   adapter: node({
@@ -18,6 +16,9 @@ export default defineConfig({
   },
   integrations: [
     astroI18next(),
+    image({
+      serviceEntryPoint: '@astrojs/image/sharp',
+    }),
     svelte(),
     mdx({
       extendMarkdownConfig: false,
@@ -25,7 +26,9 @@ export default defineConfig({
       gfm: true,
     }),
     tailwind({
-      config: { applyBaseStyles: false },
+      config: {
+        applyBaseStyles: false,
+      },
     }),
   ],
 })
