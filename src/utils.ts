@@ -2,8 +2,6 @@ import i18next from 'i18next'
 import { localizePath } from 'astro-i18next'
 import { enCA, fr } from 'date-fns/locale/index.js'
 
-import i18nextConfig from '../astro-i18next.config'
-
 export function getCurrentLng() {
   const emptyPath = localizePath()
   const lng = emptyPath === '/' ? 'en' : emptyPath.substring(1)
@@ -14,7 +12,7 @@ export function getCurrentLng() {
 export function getArticleSlug(slug: string) {
   return slug
     .split('/')
-    .filter(fragment => fragment !== i18nextConfig.defaultLocale)
+    .filter((_, index) => index > 0)
     .join('/')
 }
 

@@ -1,5 +1,6 @@
 ---
 import i18n, { t, changeLanguage } from 'i18next'
+import { localizePath } from 'astro-i18next'
 import { isBefore, isAfter } from 'date-fns'
 import { getCollection } from 'astro:content'
 import Base from '@app/layouts/Base.astro'
@@ -63,7 +64,7 @@ const shouldShowBlogMoreBtn = blogArticles.length > 3
       {
         lastIndieStories.map(({ slug, data }) => (
           <Article
-            href={`/indie-stories/${getArticleSlug(slug)}`}
+            href={localizePath(`/indie-stories/${getArticleSlug(slug)}`)}
             title={data.title}
             date={data.publishingDate}
             imageSrc={data.thumbnailImageUrl}
@@ -74,7 +75,10 @@ const shouldShowBlogMoreBtn = blogArticles.length > 3
     </ArticleContainer>
     {
       shouldShowIndieStoriesMoreBtn && (
-        <Button link={{ href: '/indie-stories' }} label="See more about indie stuff" />
+        <Button
+          link={{ href: localizePath('/indie-stories') }}
+          label="See more about indie stuff"
+        />
       )
     }
   </Section>
@@ -89,7 +93,7 @@ const shouldShowBlogMoreBtn = blogArticles.length > 3
       {
         lastBlogArticles.map(({ slug, data }) => (
           <Article
-            href={`/blog/${getArticleSlug(slug)}`}
+            href={localizePath(`/blog/${getArticleSlug(slug)}`)}
             title={data.title}
             date={data.publishingDate}
             imageSrc={data.thumbnailImageUrl}
@@ -100,7 +104,7 @@ const shouldShowBlogMoreBtn = blogArticles.length > 3
     </ArticleContainer>
     {
       shouldShowBlogMoreBtn && (
-        <Button link={{ href: '/blog' }} label="See more blog posts" />
+        <Button link={{ href: localizePath('/blog') }} label="See more blog posts" />
       )
     }
   </Section>
