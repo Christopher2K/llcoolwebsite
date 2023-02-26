@@ -8,6 +8,7 @@ export const articleSchema = z.object({
   heroImageUrl: z.string(), // Displayed as a hero section in the blog page
   heroImageCaption: z.string(),
   thumbnailImageUrl: z.string(), // Displayed in the article list
+  thumbnailImageAlt: z.string(),
 })
 
 export type ArticleSchema = z.infer<typeof articleSchema>

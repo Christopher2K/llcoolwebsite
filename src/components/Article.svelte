@@ -1,24 +1,31 @@
 <script lang="ts">
-  import Typography from './Typography.svelte'
+  import format from 'date-fns/format'
 
-  export let information: string
+  import Typography from './Typography.svelte'
+  import { getDateLocale } from '@app/utils'
+
   export let title: string
   export let href: string
+  export let date: Date = new Date()
 
   export let imageSrc: string
   export let imageAlt: string
+
+  $: formatedDate = format(date, 'P', {
+    locale: getDateLocale(),
+  })
 </script>
 
 <article class="cursor-pointer">
   <a {href} class="flex flex-col justify-start items-start gap-3">
     <div class="relative">
-      <img class="rounded-lg" src="https://picsum.photos/1080/1920" alt="Test" />
+      <img class="rounded-lg" src={imageSrc} alt={imageAlt} />
     </div>
 
     <Typography variant="hint2" class="text-neutral-700 dark:text-neutral-100"
-      >Article - 12/12/20</Typography
+      >{formatedDate}</Typography
     >
-    <Typography>Name of the article</Typography>
+    <Typography>{title}</Typography>
   </a>
 </article>
 

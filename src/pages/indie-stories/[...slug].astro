@@ -11,8 +11,10 @@ const { slug } = Astro.params
 const entry = await getEntryBySlug('indieStories', `${lng}/${slug}`)
 if (!entry) return Astro.redirect('404')
 const { Content } = await entry.render()
+const { title, description, tags, publishingDate, heroImageUrl, heroImageCaption } =
+  entry.data
 ---
 
-<Article title="" description="">
+<Article {title} {description} {tags} {publishingDate} {heroImageUrl} {heroImageCaption}>
   <Content />
 </Article>

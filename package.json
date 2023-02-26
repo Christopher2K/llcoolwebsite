@@ -48,6 +48,6 @@
     "vite": "4.1.4"
   },
   "lint-staged": {
-    "*.{md,mdx,json,js,mjs,cjs,ts,svelte,astro,html}": "prettier --write --config .prettierrc"
+    "**/*.{md,mdx,json,js,mjs,cjs,ts,svelte,astro,html}": "prettier --write --config .prettierrc"
   }
 }
