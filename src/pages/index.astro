@@ -2,7 +2,6 @@
 import i18n, { t, changeLanguage } from 'i18next'
 import isBefore from 'date-fns/isBefore'
 import isAfter from 'date-fns/isAfter'
-
 import { getCollection } from 'astro:content'
 import Base from '@app/layouts/Base.astro'
 import Hero from '@app/components/Hero.svelte'
@@ -11,13 +10,11 @@ import Typography from '@app/components/Typography.svelte'
 import ArticleContainer from '@app/components/ArticleContainer.svelte'
 import Article from '@app/components/Article.svelte'
 import Button from '@app/components/Button.svelte'
-
 import { getArticleSlug } from '@app/utils'
 
 changeLanguage('en')
 
 const THRESHOLD = 3
-
 const lng = i18n.language
 const blogArticles = (await getCollection('blog', data => data.id.startsWith(lng))).sort(
   (a, b) => {
@@ -26,15 +23,12 @@ const blogArticles = (await getCollection('blog', data => data.id.startsWith(lng
     } else if (isBefore(a.data.publishingDate, b.data.publishingDate)) {
       return 1
     }
-
     return 0
   },
 )
 const lastBlogArticles = blogArticles.slice(0, THRESHOLD)
-
 const indieStories = await getCollection('indieStories', data => data.id.startsWith(lng))
 const lastIndieStories = indieStories.slice(0, THRESHOLD)
-
 const shouldShowIndieStoriesMoreBtn = lastIndieStories.length > 3
 const shouldShowBlogMoreBtn = blogArticles.length > 3
 ---
