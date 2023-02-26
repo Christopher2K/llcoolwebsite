@@ -1,6 +1,8 @@
 import i18next from 'i18next'
 import { localizePath } from 'astro-i18next'
+import { isBefore, isAfter } from 'date-fns'
 import { enCA, fr } from 'date-fns/locale/index.js'
+import { CollectionEntry, getCollection } from 'astro:content'
 
 export function getCurrentLng() {
   const emptyPath = localizePath()
@@ -26,4 +28,34 @@ export function getDateLocale(): Locale {
   if (lang in localDict === false)
     throw new Error('Unknow local', { cause: `Loccal being ${lang}` })
   return localDict[lang]
+}
+
+type EntryWithPublishingDate = {
+  id: string
+  data: {
+    publishingDate: Date
+  }
+}
+
+function getOlderArticleFirst(a: EntryWithPublishingDate, b: EntryWithPublishingDate) {
+  if (isAfter(a.data.publishingDate, b.data.publishingDate)) {
+    return -1
+  } else if (isBefore(a.data.publishingDate, b.data.publishingDate)) {
+    return 1
+  }
+  return 0
+}
+
+// Super unsafe but I need to rework on .astro types
+export async function getArticles<T extends 'blog' | 'indieStories'>(
+  collection: T,
+  lang: string,
+): Promise<CollectionEntry<T>[]> {
+  const collectionEntries = await getCollection(collection, data =>
+    (data as unknown as EntryWithPublishingDate).id.startsWith(lang),
+  )
+
+  return (collectionEntries as unknown as EntryWithPublishingDate[]).sort(
+    getOlderArticleFirst,
+  ) as unknown as CollectionEntry<T>[]
 }
