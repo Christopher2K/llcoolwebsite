@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   darkMode: 'class',
@@ -52,5 +54,55 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addComponents, theme }) {
+      addComponents({
+        '.heading2': {
+          fontFamily: theme('fontFamily.title'),
+          fontSize: theme('fontSize.6xl'),
+          lineHeight: '160%',
+        },
+        '.heading1': {
+          fontFamily: theme('fontFamily.title'),
+          fontSize: theme('fontSize.5xl'),
+          lineHeight: '160%',
+        },
+        '.subheading2': {
+          fontFamily: theme('fontFamily.body'),
+          fontSize: theme('fontSize.4xl'),
+          lineHeight: '160%',
+          fontWeight: 500,
+        },
+        '.subheading1': {
+          fontFamily: theme('fontFamily.body'),
+          fontSize: theme('fontSize.3xl'),
+          lineHeight: '160%',
+          fontWeight: 500,
+        },
+        '.bigbody': {
+          fontFamily: theme('fontFamily.body'),
+          fontSize: theme('fontSize.2xl'),
+          lineHeight: '160%',
+          fontWeight: 500,
+        },
+        '.body': {
+          fontFamily: theme('fontFamily.body'),
+          fontSize: theme('fontSize.xl'),
+          lineHeight: '160%',
+          fontWeight: 'normal',
+        },
+        '.hint2': {
+          fontFamily: theme('fontFamily.body'),
+          fontSize: theme('fontSize.base'),
+          lineHeight: '150%',
+          fontWeight: 'normal',
+        },
+        '.hint1': {
+          fontFamily: theme('fontFamily.body'),
+          fontSize: theme('fontSize.sm'),
+          fontWeight: 'normal',
+        },
+      })
+    }),
+  ],
 }
