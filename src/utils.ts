@@ -1,6 +1,6 @@
 import i18next from 'i18next'
 import { localizePath } from 'astro-i18next'
-import { fr, enCA } from 'date-fns/locale'
+import { enCA, fr } from 'date-fns/locale/index.js'
 
 import i18nextConfig from '../astro-i18next.config'
 

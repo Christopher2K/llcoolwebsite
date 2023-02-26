@@ -1,5 +1,5 @@
 <script lang="ts">
-  import format from 'date-fns/format'
+  import { format } from 'date-fns'
 
   import Typography from './Typography.svelte'
   import { getDateLocale } from '@app/utils'
