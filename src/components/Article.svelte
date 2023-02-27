@@ -27,7 +27,7 @@
   </a>
 </article>
 
-<style lang="postcss">
+<style>
   article:hover div::after,
   article:active div::after {
     content: '';

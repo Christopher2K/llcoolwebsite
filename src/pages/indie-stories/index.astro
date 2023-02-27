@@ -1,18 +1,28 @@
 ---
-import { changeLanguage } from 'i18next'
+import i18n, { changeLanguage } from 'i18next'
+import { localizePath } from 'astro-i18next'
 import { Image } from '@astrojs/image/components'
 import Base from '@app/layouts/Base.astro'
+import Article from '@app/components/Article.svelte'
 import Hero from '@app/components/Hero.svelte'
 import Section from '@app/components/Section.svelte'
 import ArticleShowcase from '@app/components/ArticleShowcase.svelte'
-import ShowcaseContainer from '@app/components/ShowcaseContainer.astro'
+import ArticleContainer from '@app/components/ArticleContainer.svelte'
 import Button from '@app/components/Button.svelte'
 import SectionCenteredFooter from '@app/components/SectionCenteredFooter.astro'
+import { getArticleSlug, getArticles } from '@app/utils'
 
 changeLanguage('en')
+
+const lng = i18n.language
+const indieStories = await getArticles('indieStories', lng)
+const currentFocus = indieStories[0]
+const recentStories = indieStories.slice(1, 4)
+const shouldShowMoreBtn = indieStories.length > 4
+const shouldShowPreviousSection = recentStories.length > 0
 ---
 
-<Base>
+<Base title="" description="">
   <Hero
     title={[`Indie `, `stories`]}
     tagLines={[
@@ -28,19 +38,56 @@ changeLanguage('en')
       height={698}
     />
   </Hero>
+  {
+    currentFocus && (
+      <Section title="My current focus">
+        <ArticleShowcase
+          title={currentFocus.data.title}
+          description={currentFocus.data.description}
+          date={currentFocus.data.publishingDate}
+          href={localizePath(`/indie-stories/${getArticleSlug(currentFocus.slug)}`)}
+        >
+          <Image
+            class="rounded-lg w-full mb-5 md:mb-0 md:max-w-[40%] flex-shrink-0"
+            src={currentFocus.data.thumbnailImageUrl}
+            alt={currentFocus.data.thumbnailImageAlt}
+            width={1080}
+            height={1920}
+            aspectRatio="9:16"
+          />
+        </ArticleShowcase>
+      </Section>
+    )
+  }
+  {
+    shouldShowPreviousSection && (
+      <Section title="Previous stories">
+        <ArticleContainer class="mb-10">
+          {recentStories.map(({ data, slug }) => (
+            <Article
+              href={localizePath(`/indie-stories/${getArticleSlug(slug)}`)}
+              title={data.title}
+              date={data.publishingDate}
+            >
+              <Image
+                slot="image"
+                class="rounded-lg"
+                src={data.thumbnailImageUrl}
+                alt={data.thumbnailImageAlt}
+                width={1080}
+                height={1920}
+                aspectRatio="9:16"
+              />
+            </Article>
+          ))}
+        </ArticleContainer>
 
-  <Section title="My current focus">
-    <ArticleShowcase />
-  </Section>
-
-  <Section title="Previous stories">
-    <ShowcaseContainer>
-      <ArticleShowcase />
-      <ArticleShowcase />
-    </ShowcaseContainer>
-
-    <SectionCenteredFooter>
-      <Button label="Load more articles" />
-    </SectionCenteredFooter>
-  </Section>
+        {shouldShowMoreBtn && (
+          <SectionCenteredFooter>
+            <Button label="Load more articles" />
+          </SectionCenteredFooter>
+        )}
+      </Section>
+    )
+  }
 </Base>
