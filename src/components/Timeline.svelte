@@ -17,22 +17,17 @@
   ]
 </script>
 
-<div class="w-full relative flex flex-col justify-start items-start">
-  {#each timelineEvents as timelineEvent, i}
-    <TimelineItem
-      date={timelineEvent.date}
-      event={timelineEvent.event}
-      side={i % 2 === 0 ? 'left' : 'right'}
-    />
-  {/each}
-
+<div class="w-full relative flex flex-row justify-start items-start">
   <div
-    class="center-line absolute top-0 bottom-0 left-1/2 center self-stretch w-3 bg-secondary-50 dark:bg-primary-50 rounded-full"
+    class="w-3 self-stretch bg-secondary-50 dark:bg-primary-50 rounded-full md:absolute md:top-0 md:bottom-0 md:left-1/2 md:transform md:-translate-x-1/2"
   />
+  <div class="flex-1">
+    {#each timelineEvents as timelineEvent, i}
+      <TimelineItem
+        date={timelineEvent.date}
+        event={timelineEvent.event}
+        side={i % 2 === 0 ? 'left' : 'right'}
+      />
+    {/each}
+  </div>
 </div>
-
-<style>
-  .center-line {
-    transform: translateX(-50%);
-  }
-</style>
