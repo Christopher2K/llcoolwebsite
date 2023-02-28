@@ -1,7 +1,7 @@
 ---
 import { t } from 'i18next'
 import { localizePath } from 'astro-i18next'
-import { Sun, Moon, X, Menu, Home, BookOpen, Book } from 'lucide-svelte'
+import { Sun, Moon, X, Menu, Home, BookOpen, Book, User } from 'lucide-svelte'
 
 import Typography from './Typography.svelte'
 import RoundedIconButton from './RoundedIconButton.svelte'
@@ -167,7 +167,8 @@ const path = new URL(Astro.request.url).pathname
     >
       <Laptop slot="icon" />
     </NavItem>
-    NavItem
+    -->
+    <NavItem
       hideTextOnTablet
       label={t('common:nav.links.aboutMe')}
       href={localizePath('/about')}
@@ -175,6 +176,5 @@ const path = new URL(Astro.request.url).pathname
     >
       <User slot="icon" />
     </NavItem>
-    -->
   </div>
 </nav>
