@@ -1,14 +1,31 @@
 <script lang="ts">
+  import { t } from 'i18next'
   import { Twitch, Twitter, Github, Linkedin } from 'lucide-svelte'
 
   const SOCIALS = [
-    { name: 'Twitch', href: 'https://twitch.tv/LLCoolChris_', component: Twitch },
-    { name: 'Twitter', href: 'https://twitter.com/LLCoolChris_', component: Twitter },
-    { name: 'Github', href: 'https://github.com/Christopher2k', component: Github },
+    {
+      name: 'Twitch',
+      href: 'https://twitch.tv/LLCoolChris_',
+      component: Twitch,
+      ariaLabel: t('common:socialsLink.twitch'),
+    },
+    {
+      name: 'Twitter',
+      href: 'https://twitter.com/LLCoolChris_',
+      component: Twitter,
+      ariaLabel: t('common:socialsLink.twitter'),
+    },
+    {
+      name: 'Github',
+      href: 'https://github.com/Christopher2k',
+      component: Github,
+      ariaLabel: t('common:socialsLink.github'),
+    },
     {
       name: 'Linkedin',
       href: 'https://www.linkedin.com/in/christopherkatoyi/',
       component: Linkedin,
+      ariaLabel: t('common:socialsLink.linkedIn'),
     },
   ]
 
@@ -33,7 +50,7 @@
           href={social.href}
           target="_blank"
           rel="noreferrer"
-          aria-label="Follow me on {social.name}"
+          aria-label={social.ariaLabel}
         >
           <svelte:component
             this={social.component}

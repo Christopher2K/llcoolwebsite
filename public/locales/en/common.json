@@ -14,5 +14,11 @@
       "techSetup": "Tech setup",
       "aboutMe": "About me"
     }
+  },
+  "socialsLink": {
+    "github": "Link to my Github",
+    "linkedIn": "Link to my LinkedIn",
+    "twitter": "Link to my Twitter",
+    "twitch": "Link to my Twitch channel"
   }
 }

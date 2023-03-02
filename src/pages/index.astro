@@ -45,7 +45,7 @@ const shouldShowBlogMoreBtn = blogArticles.length > 3
     />
   </Hero>
 
-  <Section title="My latest video">
+  <Section title={t('home:videoSection.title')}>
     <iframe
       class="w-full aspect-video"
       src="https://player.twitch.tv?channel=llcoolchris_&parent=localhost&parent=christopher2k.dev"
@@ -54,10 +54,8 @@ const shouldShowBlogMoreBtn = blogArticles.length > 3
     </iframe>
   </Section>
 
-  <Section title="My indie stories">
-    <Typography class="mb-10"
-      >Let me tell you stories about me, on the path of building my own products...</Typography
-    >
+  <Section title={t('home:indieStoriesSection.title')}>
+    <Typography class="mb-10">{t('home:indieStoriesSection.description')}</Typography>
     <ArticleContainer class="mb-10">
       {
         lastIndieStories.map(({ slug, data }) => (
@@ -83,18 +81,14 @@ const shouldShowBlogMoreBtn = blogArticles.length > 3
       shouldShowIndieStoriesMoreBtn && (
         <Button
           link={{ href: localizePath('/indie-stories') }}
-          label="See more about indie stuff"
+          label={t('home:indieStoriesSection.seeMore')}
         />
       )
     }
   </Section>
 
-  <Section title="Recent blog posts">
-    <Typography class="mb-10"
-      >As an engineer, it’s important to share and classify all the events, all the
-      research you’re going through in your day job. You might learn one or two things in
-      those articles.</Typography
-    >
+  <Section title={t('home:blogSection.title')}>
+    <Typography class="mb-10">{t('home:blogSection.description')}</Typography>
     <ArticleContainer class="mb-10">
       {
         lastBlogArticles.map(({ slug, data }) => (
@@ -120,7 +114,10 @@ const shouldShowBlogMoreBtn = blogArticles.length > 3
     </ArticleContainer>
     {
       shouldShowBlogMoreBtn && (
-        <Button link={{ href: localizePath('/blog') }} label="See more blog posts" />
+        <Button
+          link={{ href: localizePath('/blog') }}
+          label={t('home:blogSection.seeMore')}
+        />
       )
     }
   </Section>

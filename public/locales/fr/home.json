@@ -10,5 +10,18 @@
     "Je vous présentes mes reflexions, mes projets et mes erreurs.",
     "Gratuitement!"
   ],
-  "heroArrowLabel": "Voir ce que je fais"
+  "heroArrowLabel": "Voir ce que je fais",
+  "videoSection": {
+    "title": "Ma derniere video"
+  },
+  "indieStoriesSection": {
+    "title": "Developpement Independant",
+    "description": "Permets moi de te raconter des histoires, où tu suivras ma transition vers le développement indépendant, le \"indie hacking \".",
+    "seeMore": "Voir plus sur le indie hacking"
+  },
+  "blogSection": {
+    "title": "Articles recents",
+    "description": "En tant que développeur, c'est important de partager et de classifer les évènements, les difficultés rencontrées, les recherches menées... Tu pourrais apprendre une chose ou deux ici.",
+    "seeMore": "Voir plus d'articles"
+  }
 }

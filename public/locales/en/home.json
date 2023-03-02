@@ -10,5 +10,18 @@
     "Here are my thoughts, my projects and my mistakes.",
     "For free!"
   ],
-  "heroArrowLabel": "See what I'm doing"
+  "heroArrowLabel": "See what I'm doing",
+  "videoSection": {
+    "title": "My latest video"
+  },
+  "indieStoriesSection": {
+    "title": "My indie stories",
+    "description": "Let me tell you stories about me, being on the path of building my products to make a living.",
+    "seeMore": "See more about indie stuff"
+  },
+  "blogSection": {
+    "title": "Recent blog posts",
+    "description": "As an engineer, it’s important to share and classify all the events, all the research you’re going through in your day job. You might learn one or two things in those articles.",
+    "seeMore": "See more blog posts"
+  }
 }
