@@ -1,0 +1,19 @@
+{
+  "heroTitle": {
+    "base": "Indie ",
+    "highlight": "Stories"
+  },
+  "heroTagLines": [
+    "Each app I've been working on has a story.",
+    "Let me introduce you to these stories!"
+  ],
+  "heroImageAlt": "A laptop with DEV written on the screen",
+  "heroArrowLabel": "See what I'm building",
+  "currentFocusSection": {
+    "title": "My current focus"
+  },
+  "previousStoriesSection": {
+    "title": "Previous stories",
+    "seeMoreButton": "Load more"
+  }
+}

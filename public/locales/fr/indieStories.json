@@ -1,0 +1,19 @@
+{
+  "heroTitle": {
+    "base": "Le developpement",
+    "highlight": "independant"
+  },
+  "heroTagLines": [
+    "Toutes les applications sur lesquelles je bosse ont une histoire.",
+    "Permet moi de te les raconter ici!"
+  ],
+  "heroImageAlt": "Un ordinateur portable avec DEV écrit sur l'écran",
+  "heroArrowLabel": "Voir ce sur quoi je bosse",
+  "currentFocusSection": {
+    "title": "Ce que je fais actuellement"
+  },
+  "previousStoriesSection": {
+    "title": "Dernieres histoires",
+    "seeMoreButton": "Voir plus"
+  }
+}

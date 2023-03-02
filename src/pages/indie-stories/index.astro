@@ -1,5 +1,5 @@
 ---
-import i18n, { changeLanguage } from 'i18next'
+import i18n, { t, changeLanguage } from 'i18next'
 import { localizePath } from 'astro-i18next'
 import { Image } from '@astrojs/image/components'
 import Base from '@app/layouts/Base.astro'
@@ -24,23 +24,20 @@ const shouldShowPreviousSection = recentStories.length > 0
 
 <Base title="" description="">
   <Hero
-    title={[`Indie `, `stories`]}
-    tagLines={[
-      `Each app I've been working on has a story.`,
-      `Let me introduce you to these stories!`,
-    ]}
+    title={[t('indieStories:heroTitle.base'), t('indieStories:heroTitle.highlight')]}
+    tagLines={t('indieStories:heroTagLines', { returnObjects: true })}
   >
     <Image
       class="hidden sm:block w-1/2 h-auto mx-auto"
       src="/images/computer.png"
-      alt="My macbook with a DEV label on the screen"
+      alt={t('indieStories:heroImageAlt')}
       width={1109}
       height={698}
     />
   </Hero>
   {
     currentFocus && (
-      <Section title="My current focus">
+      <Section title={t('indieStories:currentFocusSection.title')}>
         <ArticleShowcase
           title={currentFocus.data.title}
           description={currentFocus.data.description}
@@ -61,7 +58,7 @@ const shouldShowPreviousSection = recentStories.length > 0
   }
   {
     shouldShowPreviousSection && (
-      <Section title="Previous stories">
+      <Section title={t('indieStories:previousStoriesSection.title')}>
         <ArticleContainer class="mb-10">
           {recentStories.map(({ data, slug }) => (
             <Article
@@ -84,7 +81,7 @@ const shouldShowPreviousSection = recentStories.length > 0
 
         {shouldShowMoreBtn && (
           <SectionCenteredFooter>
-            <Button label="Load more articles" />
+            <Button label={t('indieStories:previousStoriesSection.seeMore')} />
           </SectionCenteredFooter>
         )}
       </Section>

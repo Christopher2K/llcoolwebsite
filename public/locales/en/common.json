@@ -20,5 +20,8 @@
     "linkedIn": "Link to my LinkedIn",
     "twitter": "Link to my Twitter",
     "twitch": "Link to my Twitch channel"
+  },
+  "showcase": {
+    "goTo": "Read the full article"
   }
 }

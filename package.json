@@ -16,7 +16,7 @@
     "lint": "prettier \"./**/*.{md,mdx,json,js,mjs,cjs,ts,svelte,astro,html}\" --write",
     "lint:ci": "prettier \"./**/*.{md,mdx,json,js,mjs,cjs,ts,svelte,astro,html}\" --check",
     "clean": "rm -rf ./src/pages/fr",
-    "localize": "pnpm run clean && astro-i18next generate",
+    "localize": "pnpm run clean && astro-i18next generate && pnpm run lint;",
     "postinstall": "astro sync"
   },
   "dependencies": {

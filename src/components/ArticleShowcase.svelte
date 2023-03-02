@@ -1,5 +1,6 @@
 <script lang="ts">
   import { format } from 'date-fns'
+  import { t } from 'i18next'
 
   import { getDateLocale } from '@app/utils'
 
@@ -39,6 +40,11 @@
     /> -->
     <Typography disableColorClasses class="mb-10 text-dark">{description}</Typography>
 
-    <Button label="Read the full article" fullWidth class="md:w-fit" link={{ href }} />
+    <Button
+      label={t('common:showcase.goTo')}
+      fullWidth
+      class="md:w-fit"
+      link={{ href }}
+    />
   </div>
 </article>
