@@ -1,5 +1,6 @@
 ---
 import { changeLanguage } from 'i18next'
+import { Image } from '@astrojs/image/components'
 import Base from '@app/layouts/Base.astro'
 import Hero from '@app/components/Hero.svelte'
 import Section from '@app/components/Section.svelte'
@@ -11,15 +12,20 @@ changeLanguage('en')
 <!-- TODO TRANSLATIONS -->
 <Base title="" description="">
   <Hero
-    title={[`I'm Chris, a`, 'Software Engineer']}
+    title={['Who is ', 'Chris?']}
     tagLines={[
-      `I already said that but, here I am`,
       `Engineer, streamer, indie hacker, fashionista, bassist, basic Twitter user...`,
       `I teach but also still learning how to make quality software`,
     ]}
     arrowLabel="Get to know more about me"
   >
-    <!-- TODO BOB IMAGE -->
+    <Image
+      class="hidden sm:block h-[20rem] w-auto mx-auto"
+      src="/images/avatar.png"
+      alt={'Something'}
+      width={800}
+      height={800}
+    />
   </Hero>
 
   <Section title="">Something needs to be here</Section>
