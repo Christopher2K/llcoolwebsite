@@ -3,18 +3,15 @@
 </script>
 
 <script lang="ts">
+  import { t } from 'i18next'
   import TimelineItem from './TimelineItem.svelte'
 
-  const timelineEvents: TimelineEvent[] = [
-    { date: 'May 1996', event: 'I was born in Paris XII' },
-    { date: 'June 2013', event: 'Got my high scool degree' },
-    { date: 'September 2013', event: 'Got into CS engineering school' },
-    {
-      date: 'October 2013',
-      event: 'First job part-time job as a helpdesk / sysadmin apprentice',
-    },
-    { date: 'June 2015', event: 'Graduated but realized the cloud was not for me.' },
-  ]
+  const timelineEvents: TimelineEvent[] = (
+    t('about:timelineSection.events', { returnObjects: true }) as [string, string][]
+  ).map(([date, event]) => ({
+    date,
+    event,
+  }))
 </script>
 
 <div class="w-full relative flex flex-row justify-start items-start">

@@ -1,5 +1,5 @@
 ---
-import { changeLanguage } from 'i18next'
+import { t, changeLanguage } from 'i18next'
 import { Image } from '@astrojs/image/components'
 import Base from '@app/layouts/Base.astro'
 import Hero from '@app/components/Hero.svelte'
@@ -12,25 +12,20 @@ changeLanguage('en')
 <!-- TODO TRANSLATIONS -->
 <Base title="" description="">
   <Hero
-    title={['Who is ', 'Chris?']}
-    tagLines={[
-      `Engineer, streamer, indie hacker, fashionista, bassist, basic Twitter user...`,
-      `I teach but also still learning how to make quality software`,
-    ]}
-    arrowLabel="Get to know more about me"
+    title={[t('about:heroTitle.base'), t('about:heroTitle.highlight')]}
+    tagLines={t('about:heroTagLines', { returnObjects: true })}
+    arrowLabel={t('about:heroArrowLabel')}
   >
     <Image
       class="hidden sm:block h-[20rem] w-auto mx-auto"
       src="/images/avatar.png"
-      alt={'Something'}
+      alt={t('about:heroImageAlt')}
       width={800}
       height={800}
     />
   </Hero>
 
-  <Section title="">Something needs to be here</Section>
-
-  <Section title="Timeline">
+  <Section title={t('about:timelineSection.title')}>
     <Timeline />
   </Section>
 </Base>

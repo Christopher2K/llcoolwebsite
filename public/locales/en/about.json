@@ -1,0 +1,43 @@
+{
+  "heroTitle": {
+    "base": "Who is ",
+    "highlight": "Chris ?"
+  },
+  "heroImageAlt": "My avatar drawn by SP00KYBASTARD",
+  "heroTagLines": [
+    "Engineer, streamer, indie hacker, fashionista, bassist, basic Twitter user...",
+    "I teach but also still learning how to make quality software"
+  ],
+  "heroArrowLabel": "Get to know more about me!",
+  "timelineSection": {
+    "title": "My Timeline",
+    "events": [
+      ["May 1996", "Started my life journey in Paris, France"],
+      ["July 2013", "Got my high school degree"],
+      ["October 2013", "First working-student job as a sysadmin / helpdesk"],
+      [
+        "July 2015",
+        "Got my technical degree in IT Business Services. I also realized networks & systems were not for me."
+      ],
+      [
+        "September 2015",
+        "Started a 3rd year BSc in Computer Science, it was my first time coding something."
+      ],
+      [
+        "December 2015",
+        "Finished my very fist programming project: a MS Paint written in Java (JFx / Swing)"
+      ],
+      [
+        "May 2016",
+        "Started a new working-student job as a software engineer in a start-up"
+      ],
+      ["July 2016", "Got my BSc in Computer Science"],
+      ["September 2018", "Got my MSc in Computer Science"],
+      ["October 2019", "Quit my job to do some freelancing"],
+      ["December 2020", "Started streaming code on Twitch"],
+      ["June 2021", "Moved from Paris (France), to Toronto (Canada)"],
+      ["July 2021", "Started a full time position as a Senior Software Engineer"],
+      ["Today", "Alive, healthy, happy and still learning a tons of exciting stuffs!"]
+    ]
+  }
+}
