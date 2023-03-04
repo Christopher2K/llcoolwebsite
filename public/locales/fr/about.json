@@ -1,0 +1,52 @@
+{
+  "heroTitle": {
+    "base": "Qui est ",
+    "highlight": "Chris ?"
+  },
+  "heroImageAlt": "Mon avatar, déssiné par SP00KYBASTARD",
+  "heroTagLines": [
+    "Développeur, stremeur, entrepreneur, fashionista, bassiste, utilisateur de Twitter random...",
+    "J'enseigne mais j'apprend toujours comment faire du logiciel de qualité"
+  ],
+  "heroArrowLabel": "En savoir plus sur moi!",
+  "timelineSection": {
+    "title": "Ma frise chronologique",
+    "events": [
+      ["Mai 1996", "Je suis né à Paris, France"],
+      ["Juillet 2013", "J'ai eu mon bac!"],
+      [
+        "Octobre 2013",
+        "Premier contrat d'alternance en tant que administateur système et réseaux"
+      ],
+      [
+        "Juillet 2015",
+        "BTS en poche, mais j'ai réalisé que le sysadmi n'était pas pour moi"
+      ],
+      [
+        "Septembre 2015",
+        "J'ai commencé une L3 Miage. C'est aussi mon initiation à la programmation"
+      ],
+      [
+        "Décembre 2015",
+        "J'ai fini mon premier projet de dev: un MS Paint en Java (JFx et Swing)"
+      ],
+      [
+        "Mai 2016",
+        "J'ai signé un contrat en alternance en tant que développeur web dans une start up"
+      ],
+      ["Juillet 2016", "Obtention de ma Licence MIAGE"],
+      [
+        "Septembre 2018",
+        "Obtention de mon master MIAGE. Premier CDI en tant qu'Architecte Logiciel"
+      ],
+      ["Octobre 2019", "J'ai démissionné pour devenir Freelance"],
+      ["Décembre 2020", "Mon premier stream code sur Twitch"],
+      ["Juin 2021", "Déménagement de Paris vers Toronto (Canada)"],
+      ["Juillet 2021", "Démarré un nouveau CDI à Toronto en tant que Développeur Sénior"],
+      [
+        "Aujourd'hui",
+        "Vivant, en bonne santé, heureux et toujours en train d'avoir des trucs hyper cools!"
+      ]
+    ]
+  }
+}
