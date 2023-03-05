@@ -1,19 +1,17 @@
 import { defineConfig } from 'astro/config'
-import node from '@astrojs/node'
 import svelte from '@astrojs/svelte'
 import mdx from '@astrojs/mdx'
 import image from '@astrojs/image'
 import tailwind from '@astrojs/tailwind'
 import astroI18next from 'astro-i18next'
+import sitemap from '@astrojs/sitemap'
 
+// https://astro.build/config
 export default defineConfig({
-  output: 'server',
-  adapter: node({
-    mode: 'standalone',
-  }),
   server: {
     host: '0.0.0.0',
   },
+  site: 'https://christopher2k.dev',
   integrations: [
     astroI18next(),
     image({
@@ -28,6 +26,15 @@ export default defineConfig({
     tailwind({
       config: {
         applyBaseStyles: false,
+      },
+    }),
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en-CA',
+          fr: 'fr-FR',
+        },
       },
     }),
   ],

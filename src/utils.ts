@@ -59,3 +59,12 @@ export async function getArticles<T extends 'blog' | 'indieStories'>(
     getOlderArticleFirst,
   ) as unknown as CollectionEntry<T>[]
 }
+
+// We don't want to generate url with /<locale>/article/<locale>/<slug>
+// This function removes the locale prefix from every slug
+export function cleanSlug(slug: string): string {
+  const [_, result] = slug.split('/')
+  if (!result) throw Error(`${slug} might be an invalid slug`)
+
+  return result
+}

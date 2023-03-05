@@ -9,7 +9,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "sync": "astro sync",
-    "build": "pnpm localize && astro build",
+    "build": "pnpm run clean && pnpm localize && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "test:e2e": "playwright test",
@@ -22,7 +22,7 @@
   "dependencies": {
     "@astrojs/image": "0.15.1",
     "@astrojs/mdx": "0.17.0",
-    "@astrojs/node": "5.0.3",
+    "@astrojs/sitemap": "1.1.0",
     "@astrojs/svelte": "2.0.2",
     "@astrojs/tailwind": "3.0.1",
     "astro": "^2.0.12",

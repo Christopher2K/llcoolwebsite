@@ -1,15 +1,21 @@
 ---
-import { getEntryBySlug } from 'astro:content'
-import { changeLanguage } from 'i18next'
+import i18n, { changeLanguage } from 'i18next'
 import Article from '@app/layouts/Article.astro'
-import { getCurrentLng } from '@app/utils'
+import { getArticles, cleanSlug } from '@app/utils'
 
 changeLanguage('en')
 
-const lng = getCurrentLng()
-const { slug } = Astro.params
-const entry = await getEntryBySlug('blog', `${lng}/${slug}`)
-if (!entry) return Astro.redirect('404')
+export async function getStaticPaths() {
+  const lng = i18n.language
+  const blogArticles = await getArticles('blog', lng)
+  return blogArticles.map(entry => {
+    return {
+      params: { slug: cleanSlug(entry.slug) },
+      props: { entry },
+    }
+  })
+}
+const { entry } = Astro.props
 const { Content } = await entry.render()
 const { title, description, tags, publishingDate, heroImageUrl, heroImageCaption } =
   entry.data
