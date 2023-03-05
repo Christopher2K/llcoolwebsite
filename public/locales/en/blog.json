@@ -1,0 +1,16 @@
+{
+  "heroTitle": {
+    "base": "Blog ",
+    "highlight": "articles"
+  },
+  "heroTagLines": ["I might teach you one or two things about development."],
+  "heroImageAlt": "Illustration of a shelf with some books.",
+  "heroArrowLabel": "See my last writing",
+  "latestArticleSection": {
+    "title": "Latest article"
+  },
+  "previousArticlesSection": {
+    "title": "Previous articles",
+    "seeMoreButton": "Load more articles"
+  }
+}

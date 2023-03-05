@@ -1,5 +1,5 @@
 ---
-import i18n, { changeLanguage } from 'i18next'
+import i18n, { t, changeLanguage } from 'i18next'
 import { localizePath } from 'astro-i18next'
 import { Image } from '@astrojs/image/components'
 import Base from '@app/layouts/Base.astro'
@@ -24,13 +24,14 @@ const shouldShowPreviousSection = recentArticles.length > 0
 
 <Base title="" description="">
   <Hero
-    title={[`Blog `, `articles`]}
-    tagLines={[`I might teach you one or two things about development.`]}
+    title={[t('blog:heroTitle.base'), t('blog:heroTitle.highlight')]}
+    tagLines={t('blog:heroTagLines', { returnObjects: true })}
+    arrowLabel={t('blog:heroArrowLabel')}
   >
     <Image
       class="hidden sm:block w-1/2 h-auto mx-auto"
       src="/images/shelf.png"
-      alt="A shelf with some books"
+      alt={t('blog:heroImageAlt')}
       width={1600}
       height={470}
     />
@@ -38,7 +39,7 @@ const shouldShowPreviousSection = recentArticles.length > 0
 
   {
     latestArticle && (
-      <Section title="Latest article">
+      <Section title={t('blog:latestArticleSection.title')}>
         <ArticleShowcase
           title={latestArticle.data.title}
           description={latestArticle.data.description}
@@ -60,7 +61,7 @@ const shouldShowPreviousSection = recentArticles.length > 0
 
   {
     shouldShowPreviousSection && (
-      <Section title="Previous articles">
+      <Section title={t('blog:previousArticlesSection.title')}>
         <ArticleContainer class="mb-10">
           {recentArticles.map(({ data, slug }) => (
             <Article
@@ -83,7 +84,7 @@ const shouldShowPreviousSection = recentArticles.length > 0
 
         {shouldShowMoreBtn && (
           <SectionCenteredFooter>
-            <Button label="Load more articles" />
+            <Button label={t('blog:previousArticlesSection.seeMoreButton')} />
           </SectionCenteredFooter>
         )}
       </Section>

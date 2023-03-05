@@ -1,0 +1,18 @@
+{
+  "heroTitle": {
+    "base": "Articles de ",
+    "highlight": "blog"
+  },
+  "heroTagLines": [
+    "Ici, je pourrais t'apprendre, sans prétention, une ou deux choses sur le développement informatique"
+  ],
+  "heroImageAlt": "Illustration d'une étagère avec quelques bouquins dessus",
+  "heroArrowLabel": "Voir mes derniers articles",
+  "latestArticleSection": {
+    "title": "Article a la une!"
+  },
+  "previousArticlesSection": {
+    "title": "Articles predecents",
+    "seeMoreButton": "Voir plus d'articles"
+  }
+}
