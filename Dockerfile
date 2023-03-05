@@ -20,4 +20,9 @@ COPY ./ ./
 
 RUN pnpm run build
 
-ENTRYPOINT ["node", "dist/server/entry.mjs"]
+FROM caddy:alpine
+
+COPY --from=application /app/dist /srv/
+
+COPY ./Caddyfile /etc/caddy/Caddyfile
+
