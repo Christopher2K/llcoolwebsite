@@ -28,6 +28,11 @@ jobs:
       run: pnpm run lint:ci
 
     - name: Build website
+      env:
+        CLOUDINARY_CLOUD_NAME: fake
+        CLOUDINARY_API_KEY: fake
+        CLOUDINARY_API_SECRET: fake
+
       run: pnpm run build
 
         # TODO: Fix this

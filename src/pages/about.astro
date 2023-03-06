@@ -9,7 +9,10 @@ import Timeline from '@app/components/Timeline.svelte'
 changeLanguage('en')
 ---
 
-<Base title="" description="">
+<Base
+  title={t('about:pageTitle') as string}
+  description={t('about:pageDescription') as string}
+>
   <Hero
     title={[t('about:heroTitle.base'), t('about:heroTitle.highlight')]}
     tagLines={t('about:heroTagLines', { returnObjects: true })}

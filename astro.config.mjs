@@ -1,3 +1,4 @@
+import { loadEnv } from 'vite'
 import { defineConfig } from 'astro/config'
 import svelte from '@astrojs/svelte'
 import mdx from '@astrojs/mdx'
@@ -5,6 +6,10 @@ import image from '@astrojs/image'
 import tailwind from '@astrojs/tailwind'
 import astroI18next from 'astro-i18next'
 import sitemap from '@astrojs/sitemap'
+import cloudinary from 'cloudinary'
+
+const env = loadEnv('', process.cwd(), '')
+const cloudinaryV2 = cloudinary.v2
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +18,19 @@ export default defineConfig({
   },
   site: 'https://christopher2k.dev',
   integrations: [
+    {
+      name: 'cloudinary',
+      hooks: {
+        'astro:config:setup': () => {
+          cloudinaryV2.config({
+            secure: true,
+            cloud_name: env.CLOUDINARY_CLOUD_NAME,
+            api_key: env.CLOUDINARY_API_KEY,
+            api_secret: env.CLOUDINARY_API_SECRET,
+          })
+        },
+      },
+    },
     astroI18next(),
     image({
       serviceEntryPoint: '@astrojs/image/sharp',
@@ -32,8 +50,8 @@ export default defineConfig({
       i18n: {
         defaultLocale: 'en',
         locales: {
-          en: 'en-CA',
-          fr: 'fr-FR',
+          en: 'en_US',
+          fr: 'fr_FR',
         },
       },
     }),

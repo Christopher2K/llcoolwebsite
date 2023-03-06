@@ -18,7 +18,18 @@ const { title, description, publishingDate, heroImageUrl, heroImageCaption, tags
   Astro.props
 ---
 
-<Base {title} {description}>
+<Base
+  {title}
+  {description}
+  ogTitle={title}
+  ogType="article"
+  ogArticle={{
+    publishedTime: publishingDate.toISOString(),
+    authors: ['Christopher N. Katoyi Kaba'],
+    tags: tags,
+    section: 'Technology',
+  }}
+>
   <Typography class="capitalize my-8"
     >{format(publishingDate, 'PPPP', { locale: currentLocale })}</Typography
   >

@@ -1,20 +1,44 @@
 ---
 import '@app/styles/app.css'
 
-import i18next from 'i18next'
+import i18next, { t } from 'i18next'
+import { SEO } from 'astro-seo'
 import { HeadHrefLangs } from 'astro-i18next/components'
 
 import Nav from '@app/components/Nav.astro'
 import Footer from '@app/components/Footer.astro'
+import { getPageMetadataImage } from '@app/utils'
 
 export interface Props {
-  title: string
-  description: string
+  title?: string
+  description?: string
+  ogTitle?: string
+  ogType?: 'website' | 'article'
+  ogArticle?: {
+    publishedTime?: string
+    modifiedTime?: string
+    authors?: string[]
+    section?: string
+    tags?: string[]
+  }
 }
 
-const { title, description } = Astro.props
+const {
+  title = t('seo:defaultTitle') as string,
+  description = t('seo:defaultDescription') as string,
+  ogTitle = (t('seo:defaultOgTitle') as string) ?? title,
+  ogType = 'website',
+  ogArticle,
+} = Astro.props
+
+const ogImage = getPageMetadataImage(ogTitle)
+const ogImageAlt = t('seo:defaultOgImageAlt', { title: ogTitle })
 
 const lang = i18next.language
+const langWithTerritory: Record<string, string> = {
+  en: 'en_US',
+  fr: 'fr_FR',
+}
 ---
 
 <html lang={lang}>
@@ -23,9 +47,48 @@ const lang = i18next.language
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <title>{title}</title>
     <HeadHrefLangs />
+    <SEO
+      charset="UTF-8"
+      title={title}
+      description={description}
+      titleDefault={t('seo:defaultTitle')!}
+      titleTemplate={t('seo:titleTemplate')!}
+      openGraph={{
+        basic: {
+          title: ogTitle,
+          image: ogImage,
+          type: ogType,
+        },
+        article: ogArticle!, // Weird TS bug
+        image: {
+          alt: ogImageAlt,
+        },
+        optional: {
+          description: description,
+          locale: langWithTerritory[lang]!,
+          localeAlternate: Object.values(langWithTerritory),
+        },
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        site: '@llcoolchris_',
+        creator: '@llcoolchris_',
+        title: ogTitle,
+        description,
+        image: ogImage,
+        imageAlt: ogImageAlt,
+      }}
+      extend={{
+        meta: [
+          {
+            name: 'image',
+            content: ogImage,
+          },
+        ],
+      }}
+    />
+
     <script is:inline>
       // Dark mode script
       // Also sets initial dark mode to avoid flash

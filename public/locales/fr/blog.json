@@ -1,4 +1,6 @@
 {
+  "pageTitle": "Articles de blog",
+  "pageDescription": "Je pourrais t'apprendre, sans prétention, une ou deux choses sur le développement informatique",
   "heroTitle": {
     "base": "Articles de ",
     "highlight": "blog"

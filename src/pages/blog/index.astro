@@ -22,7 +22,10 @@ const shouldShowMoreBtn = articles.length > 4
 const shouldShowPreviousSection = recentArticles.length > 0
 ---
 
-<Base title="" description="">
+<Base
+  title={t('blog:pageTitle') as string}
+  description={t('blog:pageDescription') as string}
+>
   <Hero
     title={[t('blog:heroTitle.base'), t('blog:heroTitle.highlight')]}
     tagLines={t('blog:heroTagLines', { returnObjects: true })}

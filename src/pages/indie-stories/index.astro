@@ -22,7 +22,10 @@ const shouldShowMoreBtn = indieStories.length > 4
 const shouldShowPreviousSection = recentStories.length > 0
 ---
 
-<Base title="" description="">
+<Base
+  title={t('indieStories:pageTitle') as string}
+  description={t('indieStories:pageDescription') as string}
+>
   <Hero
     title={[t('indieStories:heroTitle.base'), t('indieStories:heroTitle.highlight')]}
     tagLines={t('indieStories:heroTagLines', { returnObjects: true })}

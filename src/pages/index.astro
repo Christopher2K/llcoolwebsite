@@ -23,7 +23,7 @@ const shouldShowIndieStoriesMoreBtn = lastIndieStories.length > 3
 const shouldShowBlogMoreBtn = blogArticles.length > 3
 ---
 
-<Base title="" description="">
+<Base title={t('home:pageTitle') as string}>
   <Hero
     title={[t('home:heroTitle.base'), t('home:heroTitle.highlight')]}
     imageSrc="/images/keyboard.png"

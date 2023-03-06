@@ -1,9 +1,11 @@
 {
+  "pageTitle": "Blog articles",
+  "pageDescription": "I might teach you one or two things about software development.",
   "heroTitle": {
     "base": "Blog ",
     "highlight": "articles"
   },
-  "heroTagLines": ["I might teach you one or two things about development."],
+  "heroTagLines": ["I might teach you one or two things about software development."],
   "heroImageAlt": "Illustration of a shelf with some books.",
   "heroArrowLabel": "See my last writing",
   "latestArticleSection": {
