@@ -71,7 +71,7 @@ export function cleanSlug(slug: string): string {
 }
 
 export function getPageMetadataImage(title: string = t('seo:defaultOgImageTitle')) {
-  return cloudinary.v2.url('christopher2k.dev/open-graph/template', {
+  return cloudinary.v2.url('christopher2k.dev/open-graph/template.png', {
     transformation: [
       {
         overlay: {
