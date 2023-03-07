@@ -31,7 +31,6 @@
 
 <style lang="postcss">
   a:hover::after,
-  a:active::after,
   a.active::after {
     content: '';
     position: absolute;
@@ -45,10 +44,11 @@
     border-radius: theme('borderRadius.xl');
   }
 
-  :global(html.dark) a:hover::after,
-  :global(html.dark) a:active::after,
-  :global(html.dark) a.active::after {
-    border-color: theme('colors.secondary.500');
+  :global(html.dark) {
+    a:hover::after,
+    a.active::after {
+      border-color: theme('colors.secondary.500');
+    }
   }
 
   .icon-container :global(svg) {

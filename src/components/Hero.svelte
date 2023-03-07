@@ -3,7 +3,7 @@
 
   import Typography from './Typography.svelte'
   import HighlightedTypography from './HighlightedTypography.svelte'
-  import RoundedIconButton from './RoundedIconButton.svelte'
+  import RoundedIconLink from './RoundedIconLink.svelte'
 
   export let title: [string, string]
   export let tagLines: string
@@ -29,13 +29,13 @@
   </div>
 
   <div class="flex flex-row justify-start items-center gap-4">
-    <RoundedIconButton type="button" label="Scroll down">
+    <RoundedIconLink href="#page-start" label={arrowLabel}>
       <ArrowDown class="text-light" />
-    </RoundedIconButton>
-
-    <Typography important>{arrowLabel}</Typography>
+    </RoundedIconLink>
   </div>
 </section>
+
+<span id="page-start" />
 
 <style lang="postcss">
 </style>
