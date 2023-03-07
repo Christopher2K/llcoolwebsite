@@ -10,6 +10,7 @@ import Footer from '@app/components/Footer.astro'
 import { getPageMetadataImage } from '@app/utils'
 
 export interface Props {
+  forceUseDefaultOgTitle?: boolean
   title?: string
   description?: string
   ogTitle?: string
@@ -24,9 +25,12 @@ export interface Props {
 }
 
 const {
+  forceUseDefaultOgTitle = false,
   title = t('seo:defaultTitle') as string,
   description = t('seo:defaultDescription') as string,
-  ogTitle = title ?? (t('seo:defaultOgTitle') as string),
+  ogTitle = forceUseDefaultOgTitle
+    ? (t('seo:defaultOgTitle') as string)
+    : title ?? (t('seo:defaultOgTitle') as string),
   ogType = 'website',
   ogArticle,
 } = Astro.props
