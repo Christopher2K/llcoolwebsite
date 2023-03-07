@@ -13,7 +13,7 @@
 </script>
 
 <section
-  class="min-h-[calc(100vh-72px-theme(space.4)-theme(space.4))] md:min-h-[100vh] flex flex-col justify-around items-center"
+  class="min-h-[calc(800px-72px-theme(space.4)-theme(space.4))] md:min-h-[100vh] flex flex-col justify-around items-center"
 >
   <Typography variant="heading2" tag="h1" class="text-center">
     {prefixTitle}
@@ -22,9 +22,11 @@
 
   <slot />
 
-  <div>
+  <div class="text-center">
     {#each tagLines as lines}
-      <Typography class="text-center">{lines}</Typography>
+      <Typography class="inline md:block text-center">{lines}</Typography><span
+        class="md:hidden">&nbsp;</span
+      >
     {/each}
   </div>
 
